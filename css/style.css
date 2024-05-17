@@ -1,0 +1,112 @@
+:root{
+    --pink: #f8bcbf;
+    --pink_hover: #faa2a7;
+}
+
+*{
+    font-family: "Poppins", sans-serif;
+}
+.h-font{
+    font-family: "Poppins";
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+}
+.nav-item{
+    font-weight: 600;
+}
+a.nav-link:hover{
+    color: #faa2a7 !important;
+}
+.btn{
+    font-weight: 600;
+}
+.container span{
+    font-weight: 600;
+    color: #fc7a81;
+}
+.custom-bg{
+    background-color: var(--pink);
+    border: 1px solid var(--pink);
+    
+}
+.custom-bg:hover{
+    background-color: var(--pink_hover);
+    border-color: var(--pink_hover);
+}
+.heading h2 {
+    margin: 30px 0;
+    font-size: 45px;
+    font-family: serif;
+    color: #faa2a7;
+    font-weight: 400;
+}
+.btn-outline-dark{
+    background-color: #fc7a8000;
+    color: #fc7a81;
+    border-color: #faa2a7;
+}
+.btn-outline-dark:hover{
+    background-color: #fc7a81;
+    color: white;
+    border-color: #fc7a81;          
+}
+.btn.btn-dark{
+    background-color: #fc7a81;
+    color: white;
+    border: none;
+}
+.btn.btn-dark:hover{
+    background-color: #ffa5a9;
+}
+
+.card-body h5{
+    font-weight: 600;
+    color:#faa2a7;
+}
+.container .card-body h6.mb-4  span{
+    font-weight: 600;
+    color: rgb(255, 202, 29);
+}
+
+/* Footer  */
+.container-fluid.bg-dark, h6.bg-dark{
+    background-color: #1f1818;
+}
+h5.mb-3{
+    font-weight: 600;
+    color: #f8b9bc;
+}
+h6.text-white{
+    color: #fdfdfd !important;
+}
+h6.bg-dark{
+    border-color: #fdfdfd;
+}
+div.h-line{
+    width: 150px;
+    margin: 0 auto;
+    height: 1.7px;
+    background: #faa2a7;
+}
+.about .heading {
+    font-size: auto;
+    font-weight: auto;
+    line-height: auto;
+    color: #265900;
+    opacity: 1;
+    font-family: serif;
+    position: static;
+    top: -30px;
+  }
+.about p {
+    font-size: 15px;
+}
+.top {
+    margin-top: 80px;
+}
+
+
+
