@@ -51,25 +51,25 @@
         <div class="col-lg-3 col-md-6 mb-4 px-4">
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                 <img src="images/hotel.png" width="90px">
-                <h4  class="mt-3">10+ ROOMS</h4>
+                <h4  class="mt-3 lobster-regular">10+ Rooms</h4>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4">
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                 <img src="images/customer.png" width="90px">
-                <h4  class="mt-3">10+ CUSTOMERS</h4>
+                <h4  class="mt-3 lobster-regular">10+ Customers</h4>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4">
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                 <img src="images/rating.png" width="90px">
-                <h4  class="mt-3">10+ RATINGS</h4>
+                <h4  class="mt-3 lobster-regular">10+ Ratings</h4>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 px-4">
             <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                 <img src="images/staff.png" width="100px">
-                <h4  class="mt-3">10+ STAFFS</h4>
+                <h4  class="mt-3 lobster-regular">10+ Staffs</h4>
             </div>
         </div>
     </div>

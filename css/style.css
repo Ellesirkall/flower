@@ -98,22 +98,7 @@ div.h-line{
     height: 1.7px;
     background: #faa2a7;
 }
-.about .heading {
-    font-size: auto;
-    font-weight: auto;
-    line-height: auto;
-    color: #265900;
-    opacity: 1;
-    font-family: serif;
-    position: static;
-    top: -30px;
-  }
-.about p {
-    font-size: 15px;
-}
-.top {
-    margin-top: 80px;
-}
+
 
 
 
