@@ -26,6 +26,8 @@
 <div class="container">
     <div class="row">
 
+        <!-- Filter -->
+
         <div class="col-lg-3 col-md-12 mb-lg-0 mb-4">
             <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
                 <div class="container-fluid flex-lg-column align-items-stretch lp-bg">
@@ -74,25 +76,64 @@
             </nav>
         </div>
 
-        <div class="col-ldg-9 col-md-12 px-4">
-            <div class="card mb-4">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <!-- Rooms -->
+
+        <div class="col-lg-9 col-md-12 px-4">
+            <div class="card mb-4 border-0 shadow">
+                <div class="row g-0 p-3 align-items-center">
+                    <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
+                        <img src="Images/room-1.png" width="400px" class="img-fluid rounded-start" alt="...">
                     </div>
-                  </div>
+                    <div class="col-md-5 px-lg-4 px-md-3 px-0">
+                        <h5 class="mb-3">Simple Sakura Suite</h5>
+                        <div class="features mb-3">
+                            <h6 class="mb-1">Features</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Room
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Bathroom
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Balcony
+                            </span>
+                        </div>
+                        <div class="facilities mb-3">
+                            <h6 class="mb-1">Facilities</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Wifi
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Television
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Aircon
+                            </span>
+                        </div>
+                        <div class="guests mb-4">
+                            <h6 class="mb-1">Guests</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Adults
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Children
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <h6 class="mb-4"><span>₱1000</span> per night</h6>
+                        <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
+                        <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">Details</a>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
+            
 
     </div>
 </div>
+
+
 
 
 <br><br><br><br>

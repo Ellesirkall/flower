@@ -141,6 +141,15 @@
                         Aircon
                     </span>
                   </div>
+                  <div class="guests mb-4">
+                    <h6 class="mb-1">Guests</h6>
+                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                        2 Adults
+                    </span>
+                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                        1 Children
+                    </span>
+                  </div>
                   <div class="rating mb-4">
                     <h6 class="mb-1">Rating</h6>
                     <span class="badge rounded-pill bg-light"></span>
@@ -187,6 +196,15 @@
                         Aircon
                     </span>
                     </div>
+                    <div class="guests mb-4">
+                    <h6 class="mb-1">Guests</h6>
+                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                        4 Adults
+                    </span>
+                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                        3 Children
+                    </span>
+                  </div>
                     <div class="rating mb-4">
                     <h6 class="mb-1">Rating</h6>
                     <span class="badge rounded-pill bg-light"></span>
@@ -233,6 +251,15 @@
                     </span>
                     <span class="badge rounded-pill bg-light text-dark text-wrap">
                         Speaker
+                    </span>
+                  </div>
+                  <div class="guests mb-4">
+                    <h6 class="mb-1">Guests</h6>
+                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                        6 Adults
+                    </span>
+                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                        4 Children
                     </span>
                   </div>
                   <div class="rating mb-4">
