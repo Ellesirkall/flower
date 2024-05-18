@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 text-center">
-                        <h6 class="mb-4"><span>₱1000</span> per night</h6>
+                        <h6 class="mb-4 fw"><span>₱1000</span> per night</h6>
                         <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
                         <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">Details</a>
                     </div>
@@ -169,7 +169,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 text-center">
-                        <h6 class="mb-4"><span>₱2000</span> per night</h6>
+                        <h6 class="mb-4 fw"><span>₱2000</span> per night</h6>
                         <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
                         <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">Details</a>
                     </div>
@@ -205,6 +205,9 @@
                             <span class="badge rounded-pill bg-light text-dark text-wrap">
                                 Aircon
                             </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Speaker
+                            </span>
                         </div>
                         <div class="guests mb-4">
                             <h6 class="mb-1">Guests</h6>
@@ -217,7 +220,7 @@
                         </div>
                     </div>
                     <div class="col-md-3 text-center">
-                        <h6 class="mb-4"><span>₱1000</span> per night</h6>
+                        <h6 class="mb-4 fw"><span>₱3000</span> per night</h6>
                         <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
                         <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">Details</a>
                     </div>
@@ -230,12 +233,6 @@
 
     </div>
 </div>
-
-
-
-
-<br><br><br><br>
-<br><br><br><br>
 
 
 <!-- Footer -->
