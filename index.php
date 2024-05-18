@@ -105,7 +105,7 @@
 
 <div class="container top">
     <div class="heading">
-      <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Our Rooms</h2>
+      <h2 class="mt-5 pt-4 mb-4 text-center fw-bold lobster-regular">Our Rooms</h2>
     </div>
 </div>
 
@@ -262,7 +262,7 @@
 
 <div class="container top">
     <div class="heading">
-      <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Testimonials</h2>
+      <h2 class="mt-5 pt-4 mb-4 text-center fw-bold lobster-regular">Testimonials</h2>
     </div>
 </div>
 
@@ -342,7 +342,7 @@
 
 <div class="container top">
     <div class="heading">
-      <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Reach Us</h2>
+      <h2 class="mt-5 pt-4 mb-4 text-center fw-bold lobster-regular">Reach Us</h2>
     </div>
 </div>
 
