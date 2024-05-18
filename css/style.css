@@ -3,9 +3,9 @@
     --pink_hover: #faa2a7;
 }
 
-*{
-    font-family: "Lobster", sans-serif;
-}
+/*{
+    font-family: "Lobster", sans-serif; 
+}*/
 .lobster-regular {
     font-family: "Lobster", sans-serif;
     font-weight: 400;
@@ -24,6 +24,12 @@ a.nav-link:hover{
 }
 .btn{
     font-weight: 600;
+}
+.col-lg-12.bg-white.shadow.p-4.rounded .mb-4{
+    font-family: "Lobster", sans-serif;
+    font-weight: 100;
+    font-size: xx-large;
+    text-align: center;
 }
 .container span{
     font-weight: 600;
