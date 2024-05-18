@@ -3,6 +3,11 @@
     --pink_hover: #faa2a7;
 }
 
+body {
+    background-color: #ffefef;
+    font-family: 'Playfair Display', serif;
+}
+
 /*{
     font-family: "Lobster", sans-serif; 
 }*/
@@ -10,11 +15,11 @@
     font-family: "Lobster", sans-serif;
     font-weight: 100;
     font-style: normal;
-  }
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-     -webkit-appearance: none;
-     margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 .nav-item{
     font-weight: 600;
@@ -38,7 +43,6 @@ a.nav-link:hover{
 .custom-bg{
     background-color: var(--pink);
     border: 1px solid var(--pink);
-    
 }
 .custom-bg:hover{
     background-color: var(--pink_hover);
@@ -68,7 +72,6 @@ a.nav-link:hover{
 .btn.btn-dark:hover{
     background-color: #ffa5a9;
 }
-
 .card-body h5{
     font-weight: 600;
     color:#faa2a7;
@@ -78,6 +81,9 @@ a.nav-link:hover{
     color: rgb(255, 202, 29);
 }
 
+.container p{
+    text-align: justify;
+}
 /* Footer  */
 .container-fluid.bg-dark, h6.bg-dark{
     background-color: #1f1818;
@@ -95,7 +101,26 @@ h6.bg-dark{
 .color-pink{
     color: #faa2a7;
 }
+.box {
+    border-top-color: var(--pink) !important; /* Ensure the border color of the boxes is consistent */
+}
 
+.col-lg-5.col-md-5.mb-4.order-lg-1.order-md-2.order-1 img {
+    border-radius: 20px; /
+}
 
+.box :hover {
+    background-color: #f8bcbf !important;
+    border-color: #faa2a7 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
 
+.box {
+    transition: box-shadow 0.3s, transform 0.3s;
+}
 
+.box:hover {
+    background-color: #ffedef !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}

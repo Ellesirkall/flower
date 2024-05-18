@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flowerpath Hotel - About</title>
+    <title>Flowerpath Hotel - Rooms</title>
     <?php require('inc/links.php'); ?>
     <style>
         .box{
@@ -19,83 +19,52 @@
 <?php require('inc/header.php'); ?>
 
 <div class="my-5 px-4">
-    <h1 class="fw-bold lobster-regular text-center color-pink">ABOUT</h1>
-   
-    <p class="text-center mt-3">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-        Hic ipsam ex aliquam voluptatem repellendus asperiores 
-        sapiente laborum, quisquam ipsum iusto.
-    </p>
-    <hr color="#faa2a7"/>
+    <h1 class="fw-bold lobster-regular text-center color-pink">Our Rooms</h1>
+    <hr>
 </div>
 
 <div class="container">
-    <div class="row justify-content-between align-items-center">
-        <div class="col-lg-6 col-md-5 mb-4 order-lg-1 order-md-1 order-2">
-            <h3 class="mb-3 lobster-regular color-pink">Welcome to Flowerpath Hotel</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Omnis minima sapiente aliquam sed officia nostrum fuga?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Omnis minima sapiente aliquam sed officia nostrum fuga?
-            </p>
-        </div>
-        <div class="col-lg-5 col-md-5 mb-4 order-lg-1 order-md-2 order-1">
-            <img src="images/about.png" class="w-200">
-        </div>
-    </div>
-</div>
-
-<hr>
-
-<div class="container mt-5">
     <div class="row">
-        <h2 class="mb-5 lobster-regular color-pink text-center">Achievements</h2>
-        <div class="col-lg-3 col-md-6 mb-4 px-4">
-            <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/hotel.png" width="90px">
-                <h4  class="mt-3 lobster-regular">10+ Rooms</h4>
-            </div>
+
+        <div class="col-lg-3">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
+                <div class="container-fluid flex-lg-column align-items-stretch lp-bg">
+                    <h4 class="mt-2 lobster-regular color-white">Filters</h4>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#filterDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse flex-column align-items-stretch mt-2  lp-bg" id="filterDropdown">
+                        <div class="border bg-light p-3 rounded mb-3">
+                            <h5 class="mb-3" style="font-size: 18px;">Check Availability</h5>
+                            <label for="form-label">Arrival Date</label>
+                            <input type="date" class="form-control shadow-none mb-3">
+                            <label for="form-label">Departure Date</label>
+                            <input type="date" class="form-control shadow-none mb-3">
+                        </div>
+                        <div class="border bg-light p-3 rounded mb-3">
+                            <h5 class="mb-3" style="font-size: 18px;">Facilities</h5>
+                            <div class="mb-2">
+                                <input type="checkbox" id="f1" class="form-check-input shadow-none mb-3">
+                                <label for="form-check-label" for="f1">Facility 1</label>   
+                            </div>
+                            <div class="mb-2">
+                                <input type="checkbox" id="f1" class="form-check-input shadow-none mb-3">
+                                <label for="form-check-label" for="f2">Facility 2</label>   
+                            </div>
+                            <div class="mb-2">
+                                <input type="checkbox" id="f1" class="form-check-input shadow-none mb-3">
+                                <label for="form-check-label" for="f3">Facility 3</label>   
+                            </div>
+
+        
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
-        <div class="col-lg-3 col-md-6 mb-4 px-4">
-            <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/customer.png" width="90px">
-                <h4  class="mt-3 lobster-regular">10+ Customers</h4>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4 px-4">
-            <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/rating.png" width="90px">
-                <h4  class="mt-3 lobster-regular">10+ Ratings</h4>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4 px-4">
-            <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-                <img src="images/staff.png" width="100px">
-                <h4  class="mt-3 lobster-regular">10+ Staffs</h4>
-            </div>
-        </div>
-        <div>
-            <p class="text-center mt-3">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                Hic ipsam ex aliquam voluptatem repellendus asperiores 
-                sapiente laborum, quisquam ipsum iusto. Lorem ipsum, dolor 
-                sit amet consectetur adipisicing elit. Hic ipsam ex aliquam 
-                voluptatem repellendus asperiores sapiente laborum, quisquam 
-                ipsum iusto. Lorem ipsum dolor sit amet consectetur adipisicing 
-                elit. Reiciendis natus laboriosam sed consequuntur fugit voluptatibus 
-                harum labore iusto consectetur tempore? Lorem ipsum dolor, sit amet 
-                consectetur adipisicing elit. Sit debitis soluta hic porro nihil amet 
-                delectus molestias illo dolore deleniti numquam laudantium dignissimos 
-                eos earum laborum temporibus maiores dolorum aspernatur, mollitia aliquid 
-                necessitatibus rerum? Animi quasi ut perspiciatis mollitia. Doloribus 
-                delectus iure cumque at deleniti ipsa amet maiores est minus.
-            </p>
-        </div>
+
     </div>
 </div>
-
-
 
 
 
