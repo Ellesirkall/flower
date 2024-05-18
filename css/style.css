@@ -6,6 +6,7 @@
 body {
     background-color: #ffefef;
     font-family: 'Playfair Display', serif;
+    font-size: 18px;
 }
 
 /*{
@@ -110,8 +111,6 @@ h6.bg-dark{
 }
 
 .box :hover {
-    background-color: #f8bcbf !important;
-    border-color: #faa2a7 !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
 }
 
@@ -120,7 +119,6 @@ h6.bg-dark{
 }
 
 .box:hover {
-    background-color: #ffedef !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
 }
