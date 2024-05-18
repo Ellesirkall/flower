@@ -20,7 +20,7 @@
 <?php require('inc/header.php'); ?>
 
 <div class="my-5 px-4">
-    <h2 class="fw-bold h-font text-center">ABOUT</h2>
+    <h2 class="fw-bold lobster-regular text-center">ABOUT</h2>
     <div class="h-line bg-dark"></div>
     <p class="text-center mt-3">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
@@ -32,7 +32,7 @@
 <div class="container">
     <div class="row justify-content-between align-items-center">
         <div class="col-lg-6 col-md-5 mb-4 order-lg-1 order-md-1 order-2">
-            <h3 class="mb-3">Lorem ipsum dolor sit</h3>
+            <h3 class="mb-3 lobster-regular">Lorem ipsum dolor sit</h3>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Omnis minima sapiente aliquam sed officia nostrum fuga?
