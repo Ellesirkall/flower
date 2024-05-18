@@ -10,14 +10,14 @@
             </p>
         </div>
         <div class="col-lg-4 p-4 text-white">
-            <h5 class="mb-3">Links</h5>
+            <h5 class="mb-3 lobster-regular">Links</h5>
             <a href="#" class="d-inline-block mb-2 text-white text-decoration-none">Home</a><br>
             <a href="#" class="d-inline-block mb-2 text-white text-decoration-none">About</a><br>
             <a href="#" class="d-inline-block mb-2 text-white text-decoration-none">Rooms</a><br>
             <a href="#" class="d-inline-block mb-2 text-white text-decoration-none">Contact Us</a>
         </div>
         <div class="col-lg-4 p-4 text-white">
-           <h5 class="mb-3">Follow Us</h5>
+           <h5 class="mb-3 lobster-regular">Follow Us</h5>
            <a href="" class="d-inline-block text-white text-decoration-none mb-2">
              <i class="bi bi-facebook"></i> Facebook
            </a><br>

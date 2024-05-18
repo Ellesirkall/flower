@@ -16,9 +16,14 @@
         <li class="nav-item">
           <a class="nav-link  me-2" href="about.php">About</a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link  me-2" href="#">Rooms</a>
         </li> 
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link  me-2" href="#">Contact Us</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link  me-2" href="#">Admin</a>
         </li>

@@ -8,7 +8,7 @@
 }*/
 .lobster-regular {
     font-family: "Lobster", sans-serif;
-    font-weight: 400;
+    font-weight: 100;
     font-style: normal;
   }
 input::-webkit-outer-spin-button,
@@ -92,11 +92,8 @@ h6.text-white{
 h6.bg-dark{
     border-color: #fdfdfd;
 }
-div.h-line{
-    width: 150px;
-    margin: 0 auto;
-    height: 1.7px;
-    background: #faa2a7;
+.color-pink{
+    color: #faa2a7;
 }
 
 
