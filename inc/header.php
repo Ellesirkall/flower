@@ -87,7 +87,7 @@
                         <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <span class="badge rounded-pill bg-light text-white mb-3 text-wrap lh-base">
+                    <span class="badge rounded-pill bg-light text-dark mb-3 text-wrap lh-base">
                         Note: Your details must match with your ID (valid id or any government issued ID) 
                         as that will be required during check-in.
                     </span>

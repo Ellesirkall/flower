@@ -199,10 +199,10 @@
                     <div class="guests mb-4">
                     <h6 class="mb-1">Guests</h6>
                     <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        4 Adults
+                        2 Adults
                     </span>
                     <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        3 Children
+                        2 Children
                     </span>
                   </div>
                     <div class="rating mb-4">
