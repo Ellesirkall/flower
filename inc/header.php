@@ -22,10 +22,10 @@
         </li> 
         </li> 
         <li class="nav-item">
-          <a class="nav-link  me-2" href="#">Contact Us</a>
+          <a class="nav-link  me-2" href="contact.php">Contact Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  me-2" href="#">Admin</a>
+          <a class="nav-link  me-2" href="admin.php">Admin</a>
         </li>
       </ul>
       <div class="d-flex">

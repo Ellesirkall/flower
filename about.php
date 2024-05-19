@@ -12,7 +12,7 @@
     <?php require('inc/header.php'); ?>
 
     <div class="my-5 px-4">
-        <h1 class="fw-bold lobster-regular text-center color-pink">ABOUT &nbsp; US</h1>
+        <h1 class="fw-bold lobster-regular text-center color-pink">About Us</h1>
         <p class="text-center mt-3">
             Welcome to Flowerpath Hotel, where we offer exceptional service and a memorable stay. Our dedication to excellence ensures that every guest experiences the best in hospitality.
         </p>

@@ -226,6 +226,57 @@
                     </div>
                 </div>
             </div>
+            <div class="card mb-4 border-0 shadow">
+                <div class="row g-0 p-3 align-items-center">
+                    <div class="col-md-4 mb-lg-0 mb-md-0 mb-3">
+                        <img src="Images/room-4.png" width="900px" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-4 px-lg-4 px-md-3 px-0">
+                        <h5 class="mb-3">Peony Goldie Suite</h5>
+                        <div class="features mb-3">
+                            <h6 class="mb-1">Features</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                5 Room
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                3 Bathroom
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Balcony
+                            </span>
+                        </div>
+                        <div class="facilities mb-3">
+                            <h6 class="mb-1">Facilities</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Wifi
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Television
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Aircon
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Speaker
+                            </span>
+                        </div>
+                        <div class="guests mb-4">
+                            <h6 class="mb-1">Guests</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                10 Adults
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                5 Children
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h6 class="mb-4 fw"><span>₱5000</span> per night</h6>
+                        <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
+                        <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">Details</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
       
