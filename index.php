@@ -381,17 +381,17 @@
         </div>
         <div class="col-lg-4  col-md-4">
             <div class="bg-white p-4 rounded mb-4">
-                <h5 class="color-pink lobster-regular">Call Us</h5>
-                <a href="tel: +63 123 456 7890" class="d-inline-block mb-2 text-decoration-none text-dark">
-                    <i class="bi bi-telephone-fill"></i>+63 123 456 7890
+                <h5 class="mt-2 dark-pink lobster-regular">Call Us</h5>
+                <a href="tel: +63 098 765 4321" class="d-inline-block mb-2 text-decoration-none text-dark">
+                    <i class="bi bi-telephone-fill color-pink lobster-regular">  +63 098 765 4321</i>
                 </a>
                 <br>
                 <a href="tel: +63 123 456 7890" class="d-inline-block mb-2 text-decoration-none text-dark">
-                    <i class="bi bi-telephone-fill"></i>+63 123 456 7890
+                    <i class="bi bi-telephone-fill color-pink lobster-regular"> +63 123 456 7890</i>
                 </a>
             </div>
             <div class="bg-white p-4 rounded mb-4">
-                <h5 class="color-pink lobster-regular">Follow Us</h5>
+                <h5 class="dark-pink lobster-regular">Follow Us</h5>
                 <a href="" class="d-inline-block mb-3">
                     <span class="badge bg-light text-dark fs-6 p-2">
                         <i class="bi bi-facebook color-pink"> Facebook</i> 

@@ -24,9 +24,6 @@
         <li class="nav-item">
           <a class="nav-link  me-2" href="contact.php">Contact Us</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link  me-2" href="admin.php">Admin</a>
-        </li>
       </ul>
       <div class="d-flex">
         <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -56,8 +53,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label class="form-label">Email address</label>
+                            <input type="text" class="form-control shadow-none">
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Password</label>
