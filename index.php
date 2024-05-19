@@ -381,7 +381,7 @@
         </div>
         <div class="col-lg-4  col-md-4">
             <div class="bg-white p-4 rounded mb-4">
-                <h5>Call Us</h5>
+                <h5 class="color-pink lobster-regular">Call Us</h5>
                 <a href="tel: +63 123 456 7890" class="d-inline-block mb-2 text-decoration-none text-dark">
                     <i class="bi bi-telephone-fill"></i>+63 123 456 7890
                 </a>
@@ -391,22 +391,22 @@
                 </a>
             </div>
             <div class="bg-white p-4 rounded mb-4">
-                <h5>Follow Us</h5>
+                <h5 class="color-pink lobster-regular">Follow Us</h5>
                 <a href="" class="d-inline-block mb-3">
                     <span class="badge bg-light text-dark fs-6 p-2">
-                        <i class="bi bi-facebook"></i> Facebook
+                        <i class="bi bi-facebook color-pink"> Facebook</i> 
                     </span>
                 </a>
                 <br>
                 <a href="" class="d-inline-block mb-3">
                     <span class="badge bg-light text-dark fs-6 p-2">
-                        <i class="bi bi-instagram"></i> Instagram
+                        <i class="bi bi-instagram color-pink"> Instagram</i> 
                     </span>
                 </a>
                 <br>
                 <a href="" class="d-inline-block">
                     <span class="badge bg-light text-dark fs-6 p-2">
-                        <i class="bi bi-twitter"></i> Twitter
+                        <i class="bi bi-twitter color-pink"> Twitter</i> 
                     </span>
                 </a>
                 <br>

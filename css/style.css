@@ -1,34 +1,27 @@
 :root{
-    --pink: #f8bcbf;
+    /* Defines a global variable for color*/
+    --pink: #f8bcbf; 
     --pink_hover: #faa2a7;
 }
 
+/* Default font for body*/
 body {
     background-color: #fdf7f7;
     font-family: 'Playfair Display', serif;
     font-size: 18px;
 }
-.fw{
+
+
+/* Apply desired font weight */
+.fw{ 
     font-size: x-large;
 }
+
+/* Adding preferred font */
 .lobster-regular {
     font-family: "Lobster", sans-serif;
     font-weight: 100;
     font-style: normal;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-.nav-item{
-    font-weight: 600;
-}
-a.nav-link:hover{
-    color: #faa2a7 !important;
-}
-.btn{
-    font-weight: 600;
 }
 .col-lg-12.bg-white.shadow.p-4.rounded .mb-4{
     font-family: "Lobster", sans-serif;
@@ -36,9 +29,53 @@ a.nav-link:hover{
     font-size: xx-large;
     text-align: center;
 }
+
+
+/* Removes the default styling provided by the browser */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Header settings */
+.nav-item{
+    font-weight: 600;
+}
+a.nav-link:hover{
+    color: #faa2a7 !important;
+}
+.heading h2 {
+    margin: 30px 0;
+    font-size: 45px;
+    color: #faa2a7;
+    font-weight: 400;
+}
+
+
+/* Container Settings */
 .container span{
     font-weight: 600;
     color: #fc7a81;
+}
+.card-body h5{
+    font-weight: 600;
+    color:#faa2a7;
+}
+.container .card-body h6.mb-4  span{
+    font-weight: 600;
+    color: rgb(255, 202, 29);
+}
+
+.container p{
+    text-align: justify;
+}
+
+
+/* Buttons */
+.btn{
+    font-weight: 600;
 }
 .custom-bg{
     background-color: var(--pink);
@@ -47,12 +84,6 @@ a.nav-link:hover{
 .custom-bg:hover{
     background-color: var(--pink_hover);
     border-color: var(--pink_hover);
-}
-.heading h2 {
-    margin: 30px 0;
-    font-size: 45px;
-    color: #faa2a7;
-    font-weight: 400;
 }
 .btn-outline-dark{
     background-color: #fc7a8000;
@@ -72,19 +103,9 @@ a.nav-link:hover{
 .btn.btn-dark:hover{
     background-color: #ffa5a9;
 }
-.card-body h5{
-    font-weight: 600;
-    color:#faa2a7;
-}
-.container .card-body h6.mb-4  span{
-    font-weight: 600;
-    color: rgb(255, 202, 29);
-}
 
-.container p{
-    text-align: justify;
-}
-/* Footer  */
+
+/* Footer */
 .container-fluid.bg-dark, h6.bg-dark{
     background-color: #1f1818;
 }
@@ -101,6 +122,9 @@ h6.bg-dark{
 .color-pink{
     color: #faa2a7;
 }
+
+
+/* Box Hover Style */
 .box {
     border-top-color: var(--pink) !important; /* Ensure the border color of the boxes is consistent */
 }
