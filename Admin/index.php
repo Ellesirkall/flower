@@ -3,6 +3,12 @@
 require('inc/essentials.php');
 require('inc/adminSQL.php');
 
+session_start();
+session_regenerate_id(true);
+if((isset($_SESSION["adminLogin"]) && $_SESSION["adminLogin"]==true)){
+    redirect('dashboard.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +55,6 @@ if (isset($_POST['login'])) {
         $result = select($query, $values, "ss");
         if ($result->num_rows == 1) {
             $row = mysqli_fetch_assoc($result);
-            session_start();
             $_SESSION['adminLogin'] = true;
             $_SESSION['adminId'] = $row['id_no'];
             redirect('dashboard.php');
