@@ -54,7 +54,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label">Email address</label>
-                            <input type="text" class="form-control shadow-none">
+                            <input type="email" class="form-control shadow-none">
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Password</label>
