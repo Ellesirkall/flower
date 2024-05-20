@@ -1,5 +1,6 @@
 <?php 
 
+require('inc/essentials.php');
 require('inc/adminSQL.php');
 
 ?>
@@ -46,10 +47,15 @@ if (isset($_POST['login'])) {
         $query = "SELECT * FROM `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
         $values = [$form_data['admin_name'], $form_data['admin_pass']];
         $result = select($query, $values, "ss");
-        if ($result) {
-            print_r($result);
+        if ($result->num_rows == 1) {
+            $row = mysqli_fetch_assoc($result);
+            session_start();
+            $_SESSION['adminLogin'] = true;
+            $_SESSION['adminId'] = $row['id_no'];
+            redirect('dashboard.php');
+
         } else {
-            echo "No results found or there was an error with the query.";
+           alert('error', 'Login failed: Invalid credentials! ');
         }
     }
 }
