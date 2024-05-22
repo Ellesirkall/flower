@@ -32,6 +32,8 @@ session_regenerate_id(true);
                         <i class="bi bi-pencil-square color-white"></i> Edit
                         </button>
                     </div>
+                    <h6 class="card-subtitle mb-1 fw-bold">Site Title</h6>
+                    <p class="card-text">Content</p>
                     <h6 class="card-subtitle mb-1 fw-bold">About Us</h6>
                     <p class="card-text">Content</p>
                 </div>
@@ -39,7 +41,7 @@ session_regenerate_id(true);
 
             <!-- Setting Modal -->
 
-            <div class="modal fade" id="general-s" data-bs-backdrop="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="general-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <form>
                         <div class="modal-content">
@@ -47,14 +49,14 @@ session_regenerate_id(true);
                                 <h5 class="modal-title color-pink">General Settings</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            
+
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label class="form-label">Site Title</label>
                                     <input type="text" name="site_title" id="site_title_inp" class="form-control shadow-none"></input>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label">Site About</label>
+                                    <label class="form-label">About Us</label>
                                     <textarea name="site_about" id="site_about_inp" class="form-control shadow-none" rows="5"></textarea>
                                 </div>
                             </div>
