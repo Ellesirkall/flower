@@ -16,8 +16,6 @@ function redirect($url){
     </script>";
 }
 
-
-
 function alert($type, $msg){
     $bs_class = ($type == "success") ? "alert-success" : "alert-danger";
     echo <<<alert

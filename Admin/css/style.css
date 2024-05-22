@@ -110,3 +110,17 @@ a.nav-link:hover{
 .btn.btn-dark:hover{
     background-color: #ffa5a9;
 }
+
+
+
+
+@media screen and (max-width: 991px) {
+    #dash-menu{
+        position: fixed;
+        height: auto;
+        width: 100%;
+    }
+    #main-content{
+        margin-top: 60px;
+    }
+}

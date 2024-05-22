@@ -15,9 +15,14 @@ session_regenerate_id(true);
 </head>
 <body>
 
-<div class="container-fluid shadow text-light p-3 d-flex align-items-center justify-content-between" style="background-color:#fce7e9;">
-    <h5 class="mb-0 fw dark-pink lobster-regular">Admin Panel</h5>
-    <a href="logout.php" class="btn custom-bg btn-sm text-white">Log Out</a>
+    <?php require('inc/header.php');?>
+
+<div class="container-fluid" id="main-content">
+    <div class="row">
+        <div class="col-lg-10 ms-auto p-4 overflow-hidden">
+            
+        </div>
+    </div>
 </div>
 
 
