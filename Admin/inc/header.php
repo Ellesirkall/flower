@@ -1,6 +1,3 @@
-
-
-
 <div class="container-fluid text-light p-3 d-flex align-items-center justify-content-between sticky-top" style="background-color:#c92b5a;">
     <h5 class="mb-0 fw text-white lobster-regular">FlowerPath - Admin</h5>
     <a href="logout.php" class="btn btn-sm btn-log" style="  background-color: white; color:#ee6e6e;">Log Out</a>
