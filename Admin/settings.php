@@ -64,7 +64,7 @@ session_regenerate_id(true);
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn custom-bg text-white shadow-none" onclick="upd_general()">Submit</button>
+                                    <button type="button" class="btn btn-dark text-white shadow-none" onclick="upd_general()">Submit</button>
                                 </div>
                             </div>
                         </form>
