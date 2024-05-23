@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $hname = 'localhost';
 $uname = 'root';
@@ -7,13 +7,13 @@ $db = 'pathflowerhotel';
 
 $con = mysqli_connect($hname, $uname, $pass, $db);
 
-if(!$con){
-    die('Cannot connect to database'. mysqli_connect_error());
+if (!$con) {
+    die('Cannot connect to database: ' . mysqli_connect_error());
 }
 
 function sanitization($data) {
     $sanitized = [];
-    foreach ($data as $key => $value) { 
+    foreach ($data as $key => $value) {
         $sanitized[$key] = trim($value);
         $sanitized[$key] = stripslashes($sanitized[$key]);
         $sanitized[$key] = htmlspecialchars($sanitized[$key]);
@@ -22,26 +22,46 @@ function sanitization($data) {
     return $sanitized;
 }
 
-function select($sql, $values, $datatypes){
+function select($sql, $values, $datatypes) {
     $con = $GLOBALS['con'];
     try {
-        if($stmt = mysqli_prepare($con, $sql)){
+        if ($stmt = mysqli_prepare($con, $sql)) {
             mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
 
-            if(mysqli_stmt_execute($stmt)){
+            if (mysqli_stmt_execute($stmt)) {
                 $result = mysqli_stmt_get_result($stmt);
                 return $result;
-            } else{
+            } else {
                 throw new Exception("Query cannot be executed - Select");
             }
 
             mysqli_stmt_close($stmt);
-        }
-        else{
+        } else {
             throw new Exception("Query cannot be prepared - Select");
         }
     } catch (Exception $e) {
-        // Handle exception
+        echo "Error: " . $e->getMessage();
+    }
+}
+
+function update($sql, $values, $datatypes) {
+    $con = $GLOBALS['con'];
+    try {
+        if ($stmt = mysqli_prepare($con, $sql)) {
+            mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $affected_rows = mysqli_stmt_affected_rows($stmt);
+                return $affected_rows;
+            } else {
+                throw new Exception("Query cannot be executed - Update");
+            }
+
+            mysqli_stmt_close($stmt);
+        } else {
+            throw new Exception("Query cannot be prepared - Update");
+        }
+    } catch (Exception $e) {
         echo "Error: " . $e->getMessage();
     }
 }
