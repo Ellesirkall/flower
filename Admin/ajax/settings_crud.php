@@ -25,6 +25,7 @@ if (isset($_POST['action'])) {
         $values = [$form_data, 1];
         $res = update($q, $values, 'ii');
         echo json_encode(['result' => $res]);
+        
     } elseif ($_POST['action'] == 'upd_general') {
         $site_title = $_POST['site_title'];
         $site_about = $_POST['site_about'];

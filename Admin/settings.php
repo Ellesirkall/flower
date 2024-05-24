@@ -15,7 +15,7 @@ session_regenerate_id(true);
 </head>
 <body>
 
-        <?php require('inc/header.php');?>
+    <?php require('inc/header.php');?>
 
     <div class="container-fluid" id="main-content">
         <div class="row">
@@ -64,7 +64,7 @@ session_regenerate_id(true);
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-dark text-white shadow-none" onclick="upd_general()">Submit</button>
+                                    <button type="button" class="btn btn-dark text-white shadow-none" onclick="upd_general(this.checked)">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -192,5 +192,5 @@ session_regenerate_id(true);
                 get_general();
             }
         </script>
-    </body>
+</body>
 </html>

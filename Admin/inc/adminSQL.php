@@ -27,20 +27,24 @@ function select($sql, $values, $datatypes) {
     try {
         if ($stmt = mysqli_prepare($con, $sql)) {
             mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
-
             if (mysqli_stmt_execute($stmt)) {
                 $result = mysqli_stmt_get_result($stmt);
-                return $result;
+                if ($result) {
+                    return $result;
+                } else {
+                    throw new Exception("Error fetching result:". mysqli_error($con));
+                }
             } else {
-                throw new Exception("Query cannot be executed - Select");
+                throw new Exception("Error fetching result:". mysqli_stmt_error($stmt));
             }
 
             mysqli_stmt_close($stmt);
         } else {
-            throw new Exception("Query cannot be prepared - Select");
+            throw new Exception("Preparation error:". mysqli_error($con));
         }
     } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
+        echo json_encode(["error" => $e->getMessage()]);
+        return false;
     }
 }
 
@@ -54,15 +58,16 @@ function update($sql, $values, $datatypes) {
                 $affected_rows = mysqli_stmt_affected_rows($stmt);
                 return $affected_rows;
             } else {
-                throw new Exception("Query cannot be executed - Update");
+                throw new Exception("Execution error: ". mysqli_stmt_error($stmt));
             }
-
-            mysqli_stmt_close($stmt);
+            
+           
         } else {
-            throw new Exception("Query cannot be prepared - Update");
+            throw new Exception("Preparation error:". mysqli_error($con));
         }
     } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
+        echo json_encode(["error" => $e->getMessage()]);
+        return false;
     }
 }
 ?>
