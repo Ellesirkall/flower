@@ -202,7 +202,7 @@
 				document.querySelector(".progress-bar").innerHTML = "Working..." + percent + "%";
 			});
 
-			ajax.open('post','userp/ajax.php', true);
+			ajax.open('post','ajax.php', true);
 			ajax.send(form);
 		},
 
@@ -213,7 +213,7 @@
 			if(obj.success)
 			{
 				alert("Login successfull!");
-				window.location.href = 'userp/index.php';
+				window.location.href = 'profile.php';
 			}else{
 
 				//show errors

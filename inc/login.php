@@ -1,7 +1,7 @@
 <?php
 
 	$arr = [];
-	$arr['email'] 		= $_POST['email'];
+	$arr['email'] = $_POST['email'];
 
  	$row = db_query("select * from users where email = :email limit 1",$arr);
 

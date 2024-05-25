@@ -11,7 +11,7 @@ if(!empty($_POST['data_type']))
 	if($_POST['data_type'] == "signup")
 	{
 
-		require 'includes/signup.php';
+		require 'inc/signup.php';
 	}else
 	if($_POST['data_type'] == "profile-edit")
 	{
@@ -23,7 +23,7 @@ if(!empty($_POST['data_type']))
 		{
 			$row = $row[0];
 		}
-		require 'includes/profile-edit.php';
+		require 'inc/profile-edit.php';
 	}else
 	if($_POST['data_type'] == "profile-delete")
 	{
@@ -35,12 +35,12 @@ if(!empty($_POST['data_type']))
 		{
 			$row = $row[0];
 		}
-		require 'includes/profile-delete.php';
+		require 'inc/profile-delete.php';
 	}else
 	if($_POST['data_type'] == "login")
 	{
 
-		require 'includes/login.php';
+		require 'inc/login.php';
 	}
 
 	echo json_encode($info);

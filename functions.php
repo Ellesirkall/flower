@@ -51,7 +51,7 @@ function get_image($path = ''):string
 		return $path;
 	}
 
-	return './images/no-image.jpg';
+	return './Images/no-image.jpg';
 }
 
 function user(string $key = '')

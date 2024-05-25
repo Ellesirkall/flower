@@ -23,7 +23,7 @@ session_regenerate_id(true);
             
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h3 class="m-2 lobster-regular color-pink">Dashboard</h3>
-                <h6 class="badge bg-danger py-2 px-3 rounded">Shutdown mode is Active</h6>
+                <!-- <h6 class="badge bg-danger py-2 px-3 rounded">Shutdown mode is Active</h6> -->
             </div>
 
             <div class="row mb-4">
@@ -60,7 +60,6 @@ session_regenerate_id(true);
                     </a>
                 </div>
             </div>
-
             <div class="d-flex align-items-center justify-content-between mb-3">
                 <h3 class="m-2 lobster-regular color-pink">Booking Analytics</h3>
                 <select class="form-select shadow-none bg-white w-auto">
@@ -94,9 +93,6 @@ session_regenerate_id(true);
                     </div>
                 </div>
             </div>
-            
-
-
             <div class="d-flex align-items-center justify-content-between mb-3">
                 <h3 class="m-2 lobster-regular color-pink">User, Queries, Reviews Analytics</h3>
                 <select class="form-select shadow-none bg-white w-auto">
@@ -106,7 +102,6 @@ session_regenerate_id(true);
                     <option value="3">All time</option>
                 </select>
             </div>
-
 
             <div class="row mb-3">
                 <div class="col-md-3 mb-4">
@@ -156,6 +151,7 @@ session_regenerate_id(true);
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

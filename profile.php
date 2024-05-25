@@ -4,7 +4,7 @@
 
 	if(!is_logged_in())
 	{
-		redirect('login.php');
+		redirect('index.php');
 	}
 
 	$id = $_GET['id'] ?? $_SESSION['PROFILE']['id'];
@@ -25,7 +25,7 @@
 	<title>Profile</title>
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.css">
-	<?php require("includes/links.php"); ?>
+	<?php require("inc/links.php"); ?>
 </head>
 <body>
 
@@ -37,15 +37,17 @@
 
 					<?php if(user('id') == $row['id']):?>
 
-						<a href="profile-edit.php">
-							<button class="mx-auto m-2 btn-sm btn btn-primary">Edit</button>
-						</a>
-						<a href="profile-delete.php">
-							<button class="mx-auto m-2 btn-sm btn btn-warning text-white">Delete</button>
-						</a>
-						<a href="logout.php">
-							<button class="mx-auto m-2 btn-sm btn btn-info text-white">Logout</button>
-						</a>
+						<div class="mt-2">
+							<a href="profile-edit.php" class="text-decoration-none">
+								<button class=" m-2 btn-sm btn btn-outline-dark">Edit</button>
+							</a>
+							<a href="profile-delete.php" class="text-decoration-none">
+								<button class=" m-2 btn-sm btn custom-bg text-white">Delete</button>
+							</a>
+							<a href="logout.php">
+								<button class=" m-2 btn-sm btn btn-outline-dark">Logout</button>
+							</a>
+						</div>
 					<?php endif;?>
 				</div>
 			</div>

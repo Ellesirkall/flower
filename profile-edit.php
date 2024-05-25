@@ -4,7 +4,7 @@
 
 	if(!is_logged_in())
 	{
-		redirect('login.php');
+		redirect('index.php');
 	}
 
 	$id = $_GET['id'] ?? $_SESSION['PROFILE']['id'];
@@ -25,13 +25,14 @@
 	<title>Edit Profile</title>
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.css">
+	<?php require("inc/links.php"); ?>
 </head>
 <body>
 
 	<?php if(!empty($row)):?>
 	
 		<div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
-			<div class="col-md-4 text-center">
+			<div class="col-md-4 mt-4 text-center">
 				<img src="<?=get_image($row['image'])?>" class="js-image img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">
 				<div>
 					<div class="mb-3">
@@ -43,76 +44,78 @@
 			</div>
 			<div class="col-md-8">
 				
-				<div class="h2">Edit Profile</div>
-
-				<form method="post" onsubmit="myaction.collect_data(event, 'profile-edit')">
-					<table class="table table-striped">
-						<tr><th colspan="2">User Details:</th></tr>
-						<tr><th><i class="bi bi-envelope"></i> Email</th>
-							<td>
-								<input value="<?=$row['email']?>" type="text" class="form-control" name="email" placeholder="Email">
-								<div><small class="js-error js-error-email text-danger"></small></div>
-							</td>
-						</tr>
-						<tr><th><i class="bi bi-person-circle"></i> First name</th>
-							<td>
-								<input value="<?=$row['firstname']?>" type="text" class="form-control" name="firstname" placeholder="First name">
-								<div><small class="js-error js-error-firstname text-danger"></small></div>
-							</td>
-						</tr>
-						<tr><th><i class="bi bi-person-square"></i> Last name</th>
-							<td>
-								<input value="<?=$row['lastname']?>" type="text" class="form-control" name="lastname" placeholder="Last name">
-								<div><small class="js-error js-error-lastname text-danger"></small></div>
-							</td>
-						</tr>
-						<tr><th><i class="bi bi-gender-ambiguous"></i> Gender</th>
-							<td>
-								<select name="gender" class="form-select form-select mb-3" aria-label=".form-select-lg example">
-								  <option value="">--Select Gender--</option>
-								  <option selected value="<?=$row['gender']?>"><?=$row['gender']?></option>
-								  <option value="Male">Male</option>
-								  <option value="Female">Female</option>
-								</select>
-								<div><small class="js-error js-error-gender text-danger"></small></div>
-							</td>
-						</tr>
-						
-						<tr><th><i class="bi bi-key"></i> Password</th>
-							<td>
-								<input type="password" class="form-control" name="password" placeholder="Password (leave empty to keep old password)">
-								<div><small class="js-error js-error-password text-danger"></small></div>
-							</td>
-						</tr>
-						<tr><th><i class="bi bi-key-fill"></i> Retype Password</th>
-							<td>
-								<input type="password" class="form-control" name="retype_password" placeholder="Retype Password">
-							</td>
-						</tr>
-
-					</table>
-
-					<div class="progress my-3 d-none">
-					  <div class="progress-bar" role="progressbar" style="width: 50%;" >Working... 25%</div>
-					</div>
-
-					<div class="p-2">
-						
-						<button class="btn btn-primary float-end">Save</button>
-						
-						<a href="index.php">
-							<label class="btn btn-secondary">Back</label>
-						</a>
-
-					</div>
-				</form>
+				<div class="mt-4 mb-4">
+					<div class="h2 lobster-regular color-pink">Edit Profile</div>
+	
+					<form method="post" onsubmit="myaction.collect_data(event, 'profile-edit')">
+						<table class="table">
+							<tr><th colspan="2">User Details:</th></tr>
+							<tr><th><i class="bi bi-envelope"></i> Email</th>
+								<td>
+									<input value="<?=$row['email']?>" type="text" class="form-control" name="email" placeholder="Email">
+									<div><small class="js-error js-error-email text-danger"></small></div>
+								</td>
+							</tr>
+							<tr><th><i class="bi bi-person-circle"></i> First name</th>
+								<td>
+									<input value="<?=$row['firstname']?>" type="text" class="form-control" name="firstname" placeholder="First name">
+									<div><small class="js-error js-error-firstname text-danger"></small></div>
+								</td>
+							</tr>
+							<tr><th><i class="bi bi-person-square"></i> Last name</th>
+								<td>
+									<input value="<?=$row['lastname']?>" type="text" class="form-control" name="lastname" placeholder="Last name">
+									<div><small class="js-error js-error-lastname text-danger"></small></div>
+								</td>
+							</tr>
+							<tr><th><i class="bi bi-gender-ambiguous"></i> Gender</th>
+								<td>
+									<select name="gender" class="form-select form-select mb-3" aria-label=".form-select-lg example">
+									  <option value="">--Select Gender--</option>
+									  <option selected value="<?=$row['gender']?>"><?=$row['gender']?></option>
+									  <option value="Male">Male</option>
+									  <option value="Female">Female</option>
+									</select>
+									<div><small class="js-error js-error-gender text-danger"></small></div>
+								</td>
+							</tr>
+							
+							<tr><th><i class="bi bi-key"></i> Password</th>
+								<td>
+									<input type="password" class="form-control" name="password" placeholder="Password (leave empty to keep old password)">
+									<div><small class="js-error js-error-password text-danger"></small></div>
+								</td>
+							</tr>
+							<tr><th><i class="bi bi-key-fill"></i> Retype Password</th>
+								<td>
+									<input type="password" class="form-control" name="retype_password" placeholder="Retype Password">
+								</td>
+							</tr>
+	
+						</table>
+	
+						<div class="progress my-3 d-none">
+						  <div class="progress-bar" role="progressbar" style="width: 50%;" >Working... 25%</div>
+						</div>
+	
+						<div class="p-2">
+							
+							<button class="btn btn-primary float-end custom-bg">Save</button>
+							
+							<a href="profile.php">
+								<label class="btn btn-outline-dark">Back</label>
+							</a>
+	
+						</div>
+					</form>
+				</div>
 
 			</div>
 		</div>
 
 	<?php else:?>
 		<div class="text-center alert alert-danger">That profile was not found</div>
-		<a href="index.php">
+		<a href="profile.php">
 			<button class="btn btn-primary m-4">Home</button>
 		</a>
 	<?php endif;?>

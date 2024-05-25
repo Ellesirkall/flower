@@ -16,7 +16,7 @@
                         <a class="nav-link text-white" href="dashboard.php">Dashboard</a>  
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="room.php">Rooms</a>
+                        <a class="nav-link text-white" href="rooms.php">Rooms</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="user.php">Users</a>

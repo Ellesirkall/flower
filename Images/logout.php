@@ -5,4 +5,4 @@ require 'functions.php';
 session_destroy();
 unset($_SESSION['PROFILE']);
 
-redirect("login.php");
+redirect("index.php");
