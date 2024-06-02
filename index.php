@@ -399,6 +399,8 @@
 
             </div>
             <div class="bg-white p-4 rounded mb-4">
+                <!-- this function hides facebook if there is no link in the settings in the admin panel,
+                 if you want you can add it to ig and twitter too i will leave the choice to you-->
                 <h5 class="dark-pink lobster-regular">Follow Us</h5>
                 <?php
                     if ($contact_r['fb'] != '')
