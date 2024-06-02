@@ -19,73 +19,46 @@
         <hr color="#faa2a7"/>
     </div>
 
-<!-- might not need / might be deleted
- <?php 
-// $contact_q = "SELECT * FROM `contacts` WHERE `id_no`=?"; 
-// $values = [1];
-// $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i')); 
-
-?> -->
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 mb-4 px-4">
 
                 <div class="bg-white rounded shadow p-4 box">
-                    <iframe class="w-100 rounded mb-4 shadow-none" height="450" src="<?php echo $contact_r['iframe']?>" loading="lazy"></iframe>
+                    <iframe class="w-100 rounded mb-4 shadow-none" height="450" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.016546258681!2d74.59411120896968!3d34.09471657302891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e199b855e2d241%3A0x729df1d39d2ecf49!2sThe%20Pink%20Town!5e0!3m2!1sen!2sph!4v1715681619903!5m2!1sen!2sph" loading="lazy"></iframe>
                     
                     <h5 class="dark-pink lobster-regular">Address</h5>
-                    <a href="<?php echo $contact_r['gmap']?>" target="_blank" class="d-inline-block mb-2 text-decoration-none color-pink">
-                    <i class="bi bi-geo-alt-fill fw-bold"> <?php echo $contact_r['address']?></i>
+                    <a href="https://maps.app.goo.gl/Muc5whEpmBkZ9hs78" target="_blank" class="d-inline-block mb-2 text-decoration-none color-pink">
+                    <i class="bi bi-geo-alt-fill fw-bold"> ABC, Marigold St., The Pink Town, Magam</i>
                     </a>
                     
                     <hr>
 
                     <h5 class="mt-2 dark-pink lobster-regular">Call Us</h5>
-                    <a href="tel: +<?php echo $contact_r['pn1']?>" class="d-inline-block mb-2 text-decoration-none text-dark">
-                        <i class="bi bi-telephone-fill color-pink lobster-regular">  +<?php echo $contact_r['pn1']?></i>
+                    <a href="tel: +63 098 765 4321" class="d-inline-block mb-2 text-decoration-none text-dark">
+                        <i class="bi bi-telephone-fill color-pink lobster-regular">  +63 098 765 4321</i>
                     </a>
                     <br>
-
-                    <?php
-                    if ($contact_r['pn2'] != '0') 
-                    {   
-                    echo<<<data
-                         <a href="tel: +< $contact_r[pn2]" class="d-inline-block mb-2 text-decoration-none text-dark">
-                            <i class="bi bi-telephone-fill color-pink lobster-regular"> +$contact_r[pn2]</i>
-                        </a>
-                    data;
-                    }
-
-
-                    ?>
+                    <a href="tel: +63 123 456 7890" class="d-inline-block mb-2 text-decoration-none text-dark">
+                        <i class="bi bi-telephone-fill color-pink lobster-regular"> +63 123 456 7890</i>
+                    </a>
                    
                     <hr>
 
                     <h5 class="mt-2 dark-pink lobster-regular">Email</h5>
-                    <a href="mailto: <?php echo $contact_r['email']?>" class="d-inline-block mb-2 text-decoration-none text-dark">
-                        <i class="bi bi-envelope-heart color-pink lobster-regular"> <?php echo $contact_r['email']?></i>
+                    <a href="mailto: infoflowerpath@gmail.com" class="d-inline-block mb-2 text-decoration-none text-dark">
+                        <i class="bi bi-envelope-heart color-pink lobster-regular"> infoflowerpath@gmail.com</i>
                     </a>
 
                     <hr>
                    
                     <h5 class="mt-2 dark-pink lobster-regular">Follow Us</h5>
-
-                    <?php 
-                        if ($contact_r['fb'] != '')
-                        {
-                        echo<<<data
-                            <a href="$contact_r[fb]" class="d-inline-block fs-5 me-2">
-                                <i class="bi bi-facebook color-pink"></i>
-                            </a>
-                            data;
-                        }
-
-                    ?>
-
-                    <a href="<?php echo $contact_r['ig']?>" class="d-inline-block fs-5 me-2">
+                    <a href="#" class="d-inline-block fs-5 me-2">
+                        <i class="bi bi-facebook color-pink"></i>
+                    </a>
+                    <a href="" class="d-inline-block fs-5 me-2">
                         <i class="bi bi-instagram color-pink"></i>
                     </a>
-                    <a href="<?php echo $contact_r['tw']?>" class="d-inline-block fs-5">
+                    <a href="" class="d-inline-block fs-5">
                         <i class="bi bi-twitter color-pink"></i> 
                     </a>
                 </div>
