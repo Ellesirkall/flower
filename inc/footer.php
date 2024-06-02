@@ -11,20 +11,27 @@
         </div>
         <div class="col-lg-4 p-4 text-white">
             <h5 class="mb-3 ">Links</h5>
-            <a href="#" class="d-inline-block mb-2 text-white text-decoration-none">Home</a><br>
-            <a href="#" class="d-inline-block mb-2 text-white text-decoration-none">About</a><br>
-            <a href="#" class="d-inline-block mb-2 text-white text-decoration-none">Rooms</a><br>
-            <a href="#" class="d-inline-block mb-2 text-white text-decoration-none">Contact Us</a>
+            <a href="index.php" class="d-inline-block mb-2 text-white text-decoration-none">Home</a><br>
+            <a href="about.php" class="d-inline-block mb-2 text-white text-decoration-none">About</a><br>
+            <a href="rooms.php" class="d-inline-block mb-2 text-white text-decoration-none">Rooms</a><br>
+            <a href="contact.php" class="d-inline-block mb-2 text-white text-decoration-none">Contact Us</a>
         </div>
         <div class="col-lg-4 p-4 text-white">
            <h5 class="mb-3 ">Follow Us</h5>
-           <a href="" class="d-inline-block text-white text-decoration-none mb-2">
-             <i class="bi bi-facebook"></i> Facebook
-           </a><br>
-           <a href="" class="d-inline-block text-white text-decoration-none mb-2">
+           <?php 
+              if ($contact_r['fb'] != '')
+              {
+                echo<<<data
+                  <a href="$contact_r[fb]" class="d-inline-block text-white text-decoration-none mb-2">
+                    <i class="bi bi-facebook"></i> Facebook
+                </a><br>
+                data;
+              }
+           ?>
+           <a href="<?php echo $contact_r['ig'] ?>" class="d-inline-block text-white text-decoration-none mb-2">
              <i class="bi bi-instagram"></i> Instagram
            </a><br>
-           <a href="" class="d-inline-block text-white text-decoration-none">
+           <a href="<?php echo $contact_r['tw'] ?>" class="d-inline-block text-white text-decoration-none">
              <i class="bi bi-twitter"></i> Twitter
            </a>
         </div>
