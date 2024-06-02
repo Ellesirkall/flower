@@ -1,18 +1,6 @@
-
-<?php
-require('Admin/inc/adminSQL.php');
-require('Admin/inc/essentials.php');
-
-$contact_q = "SELECT * FROM `contacts` WHERE `id_no`=?"; 
-$values = [1];
-$contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i')); 
-
-?>
-
-
 <!-- Navigation Bar -->
 
-<nav id = "nav-bar" class="navbar navbar-expand-lg navbar-light bg-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
   <div class="container-fluid">
   <a class="navbar-brand" href="#">
       <img src="images/logo.png" alt="" width="200" height="45">
@@ -23,7 +11,7 @@ $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link me-2"  href="index.php">Home</a>
+          <a class="nav-link me-2" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link  me-2" href="about.php">About</a>
@@ -224,7 +212,7 @@ $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
 			var obj = JSON.parse(result);
 			if(obj.success)
 			{
-				alert("Login successful!");
+				alert("Login successfull!");
 				window.location.href = 'profile.php';
 			}else{
 

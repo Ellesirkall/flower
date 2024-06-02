@@ -14,15 +14,10 @@ if (!$con) {
 function sanitization($data) {
     $sanitized = [];
     foreach ($data as $key => $value) {
-       
-        $value[$key] = trim($value);
-        $value = stripslashes($value);
-        $value = strip_tags($value);
-        $value = htmlspecialchars($value);
-        
-        
-        $sanitized[$key] = $value;
-   
+        $sanitized[$key] = trim($value);
+        $sanitized[$key] = stripslashes($sanitized[$key]);
+        $sanitized[$key] = htmlspecialchars($sanitized[$key]);
+        $sanitized[$key] = strip_tags($sanitized[$key]);
     }
     return $sanitized;
 }
