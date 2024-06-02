@@ -375,38 +375,53 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
-            <iframe class="w-100" height="450" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.016546258681!2d74.59411120896968!3d34.09471657302891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e199b855e2d241%3A0x729df1d39d2ecf49!2sThe%20Pink%20Town!5e0!3m2!1sen!2sph!4v1715681619903!5m2!1sen!2sph" 
+            <iframe class="w-100" height="450" src="<?php echo $contact_r ['iframe']?>" 
                     loading="lazy">
             </iframe>
         </div>
         <div class="col-lg-4  col-md-4">
             <div class="bg-white p-4 rounded mb-4">
                 <h5 class="mt-2 dark-pink lobster-regular">Call Us</h5>
-                <a href="tel: +63 098 765 4321" class="d-inline-block mb-2 text-decoration-none text-dark">
-                    <i class="bi bi-telephone-fill color-pink lobster-regular">  +63 098 765 4321</i>
+                <a href="tel: +<?php echo $contact_r ['pn1']?>" class="d-inline-block mb-2 text-decoration-none text-dark">
+                    <i class="bi bi-telephone-fill color-pink lobster-regular">  +<?php echo $contact_r ['pn1']?></i>
                 </a>
                 <br>
-                <a href="tel: +63 123 456 7890" class="d-inline-block mb-2 text-decoration-none text-dark">
-                    <i class="bi bi-telephone-fill color-pink lobster-regular"> +63 123 456 7890</i>
-                </a>
+
+                <?php if ($contact_r['pn2']!= '')
+                {
+                    echo<<<data
+                        <a href="tel: +$contact_r[pn2]" class="d-inline-block mb-2 text-decoration-none text-dark">
+                        <i class="bi bi-telephone-fill color-pink lobster-regular"> +$contact_r[pn2]</i>
+                        </a>
+                    data;
+                }
+                ?>
+
             </div>
             <div class="bg-white p-4 rounded mb-4">
                 <!-- this function hides facebook if there is no link in the settings in the admin panel,
                  if you want you can add it to ig and twitter too i will leave the choice to you-->
                 <h5 class="dark-pink lobster-regular">Follow Us</h5>
-                <a href="" class="d-inline-block mb-3">
-                    <span class="badge bg-light text-dark fs-6 p-2">
-                        <i class="bi bi-facebook color-pink"> Facebook</i> 
-                    </span>
-                </a>
-                <br>
-                <a href="" class="d-inline-block mb-3">
+                <?php
+                    if ($contact_r['fb'] != '')
+                    {
+                        echo<<<data
+                            <a href="$contact_r[fb]" class="d-inline-block mb-3">
+                            <span class="badge bg-light text-dark fs-6 p-2">
+                                <i class="bi bi-facebook color-pink"> Facebook</i> 
+                            </span>
+                            </a>
+                            <br>
+                    data;
+                    }
+                ?>
+                <a href="<?php echo $contact_r['ig'] ?>" class="d-inline-block mb-3">
                     <span class="badge bg-light text-dark fs-6 p-2">
                         <i class="bi bi-instagram color-pink"> Instagram</i> 
                     </span>
                 </a>
                 <br>
-                <a href="" class="d-inline-block">
+                <a href="<?php echo $contact_r['tw'] ?>" class="d-inline-block">
                     <span class="badge bg-light text-dark fs-6 p-2">
                         <i class="bi bi-twitter color-pink"> Twitter</i> 
                     </span>
