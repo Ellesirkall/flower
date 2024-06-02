@@ -10,11 +10,14 @@ if(!empty($_POST['data_type']))
 
 	if($_POST['data_type'] == "signup")
 	{
+
 		require 'inc/signup.php';
 	}else
 	if($_POST['data_type'] == "profile-edit")
 	{
+
 		$id = user('id');
+
 		$row = db_query("select * from users where id = :id limit 1",['id'=>$id]);
 		if($row)
 		{
@@ -24,7 +27,9 @@ if(!empty($_POST['data_type']))
 	}else
 	if($_POST['data_type'] == "profile-delete")
 	{
+
 		$id = user('id');
+
 		$row = db_query("select * from users where id = :id limit 1",['id'=>$id]);
 		if($row)
 		{
@@ -34,6 +39,7 @@ if(!empty($_POST['data_type']))
 	}else
 	if($_POST['data_type'] == "login")
 	{
+
 		require 'inc/login.php';
 	}
 

@@ -112,18 +112,7 @@ a.nav-link:hover{
 }
 
 
-.custom-alert{
-    position: fixed;
-    top: 75px;
-    right: 25px;
-}
 
-#dash-menu{
-    background-color:#c92b5a; 
-    position: fixed; 
-    height: 100%; 
-    z-index: 11;
-}
 
 @media screen and (max-width: 991px) {
     #dash-menu{

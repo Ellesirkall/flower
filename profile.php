@@ -44,7 +44,7 @@
 							<a href="profile-delete.php" class="text-decoration-none">
 								<button class=" m-2 btn-sm btn custom-bg text-white">Delete</button>
 							</a>
-							<a href="index.php">
+							<a href="logout.php">
 								<button class=" m-2 btn-sm btn btn-outline-dark">Logout</button>
 							</a>
 						</div>

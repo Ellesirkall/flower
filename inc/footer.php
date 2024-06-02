@@ -33,7 +33,7 @@
 
 <hr style="margin:0;">
 
-<h6 class="fw-bold bg-dark text-white p-3 m-0">Machine Project 2 : All rights reserved</h6>
+<h6 class="fw-bold text-center bg-dark text-white p-3 m-0">Machine Project by Allana Teston</h6>
 
 <script 
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

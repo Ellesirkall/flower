@@ -3,7 +3,7 @@
     <a href="logout.php" class="btn btn-sm btn-log" style="  background-color: white; color:#ee6e6e;">Log Out</a>
 </div>
 
-<div class="col-lg-2 border-top border-3 border-secondary" id="dash-menu">
+<div class="col-lg-2 border-top border-3" id="dash-menu" style="background-color:#c92b5a; position: fixed; height: 100%;">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid flex-lg-column align-items-stretch lp-bg">
             <h4 class="mt-2 lobster-regular text-white" >Admin Panel</h4>
