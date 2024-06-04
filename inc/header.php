@@ -1,3 +1,14 @@
+<?php
+require('Admin/inc/adminSQL.php');
+require('Admin/inc/essentials.php');
+
+$contact_q = "SELECT * FROM `contacts` WHERE `id_no`=?"; 
+$values = [1];
+$contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i')); 
+
+?>
+
+
 <!-- Navigation Bar -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
@@ -212,7 +223,7 @@
 			var obj = JSON.parse(result);
 			if(obj.success)
 			{
-				alert("Login successfull!");
+				alert("Login successful!");
 				window.location.href = 'profile.php';
 			}else{
 

@@ -161,11 +161,11 @@ session_regenerate_id(true);
                                                     <label class="form-label fw-bold">Phone Number (w/ +63)</label>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                                        <input type="text" class="form-control shadow-none" name="pn1" id="pn1_inp" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="number" class="form-control shadow-none" name="pn1" id="pn1_inp" aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                                                        <input type="text" class="form-control shadow-none" name="pn2" id="pn2_inp" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="number" class="form-control shadow-none" name="pn2" id="pn2_inp" aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="form-label fw-bold">Email</label>
