@@ -402,30 +402,39 @@
                  if you want you can add it to ig and twitter too i will leave the choice to you-->
                 <h5 class="dark-pink lobster-regular">Follow Us</h5>
                 <?php
-                    if ($contact_r['fb'] != '')
-                    {
+                    if ($contact_r['fb'] != '') {
                         echo<<<data
                             <a href="$contact_r[fb]" class="d-inline-block mb-3">
-                            <span class="badge bg-light text-dark fs-6 p-2">
-                                <i class="bi bi-facebook color-pink"> Facebook</i> 
-                            </span>
+                                <span class="badge bg-light text-dark fs-6 p-2">
+                                    <i class="bi bi-facebook color-pink"> Facebook</i>
+                                </span>
                             </a>
                             <br>
-                    data;
+                        data;
+
+
+                    }
+                    if ($contact_r['ig'] != '') {
+                        echo<<<data
+                            <a href="$contact_r[ig]" class="d-inline-block mb-3">
+                                <span class="badge bg-light text-dark fs-6 p-2">
+                                    <i class="bi bi-instagram color-pink"> Instagram</i>
+                                </span>
+                            </a>
+                            <br>
+                        data;
+                    }
+                    if ($contact_r['tw'] != '') {
+                        echo<<<data
+                            <a href="$contact_r[tw]" class="d-inline-block">
+                                <span class="badge bg-light text-dark fs-6 p-2">
+                                    <i class="bi bi-twitter color-pink"> Twitter</i>
+                                </span>
+                            </a>
+                            <br>
+                        data;
                     }
                 ?>
-                <a href="<?php echo $contact_r['ig'] ?>" class="d-inline-block mb-3">
-                    <span class="badge bg-light text-dark fs-6 p-2">
-                        <i class="bi bi-instagram color-pink"> Instagram</i> 
-                    </span>
-                </a>
-                <br>
-                <a href="<?php echo $contact_r['tw'] ?>" class="d-inline-block">
-                    <span class="badge bg-light text-dark fs-6 p-2">
-                        <i class="bi bi-twitter color-pink"> Twitter</i> 
-                    </span>
-                </a>
-                <br>
                 
             </div>
 

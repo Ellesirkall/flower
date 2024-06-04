@@ -71,14 +71,26 @@
                             </a>
                             data;
                         }
+                        if ($contact_r['ig'] != '') {
+                            echo<<<data
+                                <a href="$contact_r[ig]" class="d-inline-block mb-3">
+                                    <span class="badge bg-light text-dark fs-6 p-2">
+                                        <i class="bi bi-instagram color-pink"> Instagram</i>
+                                    </span>
+                                </a>                                
+                            data;
+                        }
+                        if ($contact_r['tw'] != '') {
+                            echo<<<data
+                                <a href="$contact_r[tw]" class="d-inline-block">
+                                    <span class="badge bg-light text-dark fs-6 p-2">
+                                        <i class="bi bi-twitter color-pink"> Twitter</i>
+                                    </span>
+                                </a>
+                            data;
+                        }
 
                     ?>
-                    <a href="<?php echo $contact_r['ig']?>" class="d-inline-block fs-5 me-2">
-                        <i class="bi bi-instagram color-pink"></i>
-                    </a>
-                    <a href="<?php echo $contact_r['tw']?>" class="d-inline-block fs-5">
-                        <i class="bi bi-twitter color-pink"></i> 
-                    </a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 px-4">

@@ -26,14 +26,28 @@
                     <i class="bi bi-facebook"></i> Facebook
                 </a><br>
                 data;
+                
               }
+              if ($contact_r['ig'] != '')
+              {
+                echo<<<data
+                    <a href="$contact_r[ig]" class="d-inline-block text-white text-decoration-none mb-2">
+                            <i class="bi bi-instagram"></i> Instagram</i>
+                        </span>
+                    </a>
+                    <br>
+                data;
+              }
+            if ($contact_r['tw'] != '') {
+                echo<<<data
+                    <a href="$contact_r[tw]" class="d-inline-block text-white text-decoration-none mb-2">
+                            <i class="bi bi-twitter"></i> Twitter</i>
+                        </span>
+                    </a>
+                    <br>
+                data;
+            }
            ?>
-           <a href="<?php echo $contact_r['ig'] ?>" class="d-inline-block text-white text-decoration-none mb-2">
-             <i class="bi bi-instagram"></i> Instagram
-           </a><br>
-           <a href="<?php echo $contact_r['tw'] ?>" class="d-inline-block text-white text-decoration-none">
-             <i class="bi bi-twitter"></i> Twitter
-           </a>
         </div>
     </div>
 </div>
