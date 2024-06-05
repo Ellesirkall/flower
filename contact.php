@@ -95,25 +95,25 @@
             </div>
             <div class="col-lg-6 col-md-6 px-4">
                 <div class="bg-white rounded shadow p-4">
-                    <form action="">
+                    <form method="POST">
                         <h5 class="dark-pink lobster-regular" style="font-size: x-large;">Send a message</h5>
                         <div class="mb-3">
                             <label class="form-label color-pink fw-bold">Name:</label>
-                            <input type="text" class="form-control shadow-none">
+                            <input name="name" required type="text" class="form-control shadow-none">
                         </div>
                         <div class="mb-3">
                             <label class="form-label color-pink fw-bold">E-mail:</label>
-                            <input type="email" class="form-control shadow-none">
+                            <input name="email" required type="email" class="form-control shadow-none">
                         </div>
                         <div class="mb-3">
                             <label class="form-label color-pink fw-bold">Subject:</label>
-                            <input type="text" class="form-control shadow-none">
+                            <input name="subject" required type="text" class="form-control shadow-none">
                         </div>
                         <div class="mb-3">
                             <label class="form-label color-pink fw-bold">Message:</label>
-                            <textarea class="form-control shadow-none" rows="5" style="resize: none;"></textarea>
+                            <textarea name="message" required class="form-control shadow-none" rows="5" style="resize: none;"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-dark shadow-none mt-2">SEND</button>
+                        <button type="submit" name="send" class="btn btn-dark shadow-none mt-2">SEND</button>
                     </form>
                 </div>
             </div>
@@ -124,6 +124,31 @@
             </div>
         </div>
     </div>
+
+    <?php 
+    
+    if(isset($_POST['send'])){
+        $form_data = sanitization($_POST);
+        
+        $query = "INSERT INTO `user_queries`(`name`, `email`, `subject`, `message`) VALUES (?, ?, ?, ?)";
+        $values = [$form_data['name'], $form_data['email'], $form_data['subject'], $form_data['message']];
+        $res = insert($query, $values, 'ssss');
+        if($res==1) {
+            alert('success', 'Mail sent!');
+        } else {
+            alert('success', 'Mail not sent! Try again later.');
+        }
+    }
+    
+    
+    
+    
+    ?>
+
+
+
+
+
 
     <!-- Footer -->
     <?php require('inc/footer.php'); ?>

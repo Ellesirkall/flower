@@ -1,9 +1,9 @@
-<div class="container-fluid text-light p-3 d-flex align-items-center justify-content-between sticky-top" style="background-color:#c92b5a;">
+<div class="container-fluid text-light p-3 d-flex align-items-center justify-content-between sticky-top" style="background-color:#ee6e6e;">
     <h5 class="mb-0 fw text-white lobster-regular">FlowerPath - Admin</h5>
-    <a href="logout.php" class="btn btn-sm btn-log" style="  background-color: white; color:#ee6e6e;">Log Out</a>
+    <a href="logout.php" class="btn btn-sm btn-log" style=" background-color: white; color:#ee6e6e;">Log Out</a>
 </div>
 
-<div class="col-lg-2 border-top border-3 border-secondary" id="dash-menu">
+<div class="col-lg-2 border-top border-3 border-secondary" style=" background-color:#ee6e6e;" id="dash-menu">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid flex-lg-column align-items-stretch lp-bg">
             <h4 class="mt-2 lobster-regular text-white" >Admin Panel</h4>
@@ -16,10 +16,10 @@
                         <a class="nav-link text-white" href="dashboard.php">Dashboard</a>  
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="rooms.php">Rooms</a>
+                        <a class="nav-link text-white" href="user_queries.php">User Queries</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="user.php">Users</a>
+                        <a class="nav-link text-white" href="rooms.php">Rooms</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="settings.php">Settings</a>
