@@ -52,7 +52,7 @@ if (isset($_POST['action'])) {
             $iframe = $_POST['iframe'];
             $row = "UPDATE `contacts` SET `address`=?, `gmap`=?, `pn1`=?, `pn2`=?, `email`=?, `fb`=?, `ig`=?, `tw`=?, `iframe`=? WHERE `id_no`=?";
             $values = [$address, $gmap, $pn1, $pn2, $email, $fb, $ig, $tw, $iframe, 1]; 
-            $res = update($row, $values, 'sssssssssi');
+            $res = update($row, $values, 'ssiisssssi');
             echo json_encode(['result' => $res ? 1 : 0]);
     } else {
         echo json_encode(['error' => 'Failed to update data']);
