@@ -64,7 +64,7 @@ if (isset($_GET['del'])) {
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h4 class="m-2 lobster-regular color-pink">User Queries</h4>
+                <h4 class="m-2 lobster-regular color-pink" style="font-size: 35px;">User Queries</h4>
 
                 <div class="card-border-0 shadow-sm mb-4">
                     <div class="card-body">
