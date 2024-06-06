@@ -70,10 +70,10 @@ if (isset($_POST['get_all_rooms'])) {
     while($row = mysqli_fetch_assoc($res)){
 
         if ($row['status'] == 1) {
-            $status = "<button class='btn btn-dark btn-sm shadow-none'>Active</button>
+            $status = "<button onclick='toggle_status($row[id],0)' class='btn btn-dark btn-sm shadow-none'>Active</button>
             ";
         } else {
-            $status = "<button class='btn btn-dark btn-sm shadow-none'>Inactive</button>
+            $status = "<button onclick='toggle_status($row[id],1)' class='btn btn-dark btn-sm shadow-none'>Inactive</button>
             ";
         }
 
@@ -92,14 +92,33 @@ if (isset($_POST['get_all_rooms'])) {
                 <td>₱$row[price]</td>
                 <td>$row[quantity]</td>
                 <td>$status</td>
-                <td>Buttons</td>
+                <td>
+                <button type='button' class='btn btn-dark shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-room'>
+                            <i class='bi bi-pencil-square color-white'> </i> Edit
+                            </button>   
+                </td>
             </tr>
         ";
         $i++;
     }
     echo $data;
 }
+if (isset($_POST['toggle_status']))
+{
+    $form_data = sanitization($_POST);
+    $q = 'UPDATE `rooms` SET `status`=? WHERE `id`=?';
+    $v = [$form_data['val'],$form_data['toggle_status']];
 
+    if(update($q,$v,'ii'))
+    {
+        echo 1;
+    }
+    else
+    {
+        echo 0;
+    }
+
+}
 
 
 ?>
