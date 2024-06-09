@@ -1,4 +1,9 @@
 <?php
+//frontend purpose data
+define('SITE_URL','http://127.0.0.1/flower/');
+define('ROOMS_IMG_PATH',SITE_URL.'Images/rooms/');
+//backend upload need this
+define('ROOMS_FOLDER','rooms/');
 
 function adminLogin(){
     session_start();
