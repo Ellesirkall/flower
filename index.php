@@ -217,8 +217,8 @@
                     <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
                     <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Details</a>
                     </div>
+                </div>
             </div>
-        </div>
         </div>
         <div class="col-lg-4 col-md-6 my-3">
             <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">

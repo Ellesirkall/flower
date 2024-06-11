@@ -2,12 +2,18 @@
     <div class="row d-flex justify-content-center">
         <div class="col-lg-4 p-4">
             <img src="images/logo.png" class="fs-3 mb-2" width="170" height="35">
-            <p class="text-white">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Omnis repellat perferendis cupiditate totam nobis, et eaque 
-                quam iure exercitationem dolorum, animi ullam. Laboriosam 
-                quibusdam suscipit recusandae unde deleniti eum adipisci!
-            </p>
+            <?php 
+              if ($gen_r['site_about'] != '')
+              {
+                echo<<<data
+                    <p class="text-white">
+                        $gen_r[site_about]
+                    </p>
+                data;
+                
+              }
+              ?>
+            
         </div>
         <div class="col-lg-4 p-4 text-white">
             <h5 class="mb-3 ">Links</h5>
@@ -34,8 +40,7 @@
                     <a href="$contact_r[ig]" class="d-inline-block text-white text-decoration-none mb-2">
                             <i class="bi bi-instagram"></i> Instagram</i>
                         </span>
-                    </a>
-                    <br>
+                    </a><br>
                 data;
               }
             if ($contact_r['tw'] != '') {
@@ -43,8 +48,7 @@
                     <a href="$contact_r[tw]" class="d-inline-block text-white text-decoration-none mb-2">
                             <i class="bi bi-twitter"></i> Twitter</i>
                         </span>
-                    </a>
-                    <br>
+                    </a><br>
                 data;
             }
            ?>
