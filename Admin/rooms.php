@@ -235,7 +235,7 @@ session_regenerate_id(true);
             </form>
         </div>
     </div>
-     
+                
 
                 
     <?php require('inc/scripts.php');?>  
@@ -319,6 +319,26 @@ session_regenerate_id(true);
             }
 
             xhr.send('get_all_rooms');
+        }
+        function toggle_status(id, val){
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/rooms.php", true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            xhr.onload = function(){
+
+               if(this.responseText==1)
+               {
+                alert('success','Status Toggled');
+                get_all_rooms();
+               }
+               else{
+                alert('success','Server Down');
+               }
+               
+            }
+
+            xhr.send('toggle_status='+id+'&val='+val);
         }
 
 
