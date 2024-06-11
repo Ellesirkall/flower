@@ -166,23 +166,23 @@ session_regenerate_id(true);
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Name</label>
-                                <input type="text" min="1" name="name" class="form-control shadow-none" required>
+                                <input type="text" name="name" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Price</label>
-                                <input type="number" min="1" name="price" class="form-control shadow-none" required>
+                                <input type="number" name="price" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Quantity</label>
-                                <input type="number" min="1" name="quantity" id="site_title_inp" class="form-control shadow-none" required>
+                                <input type="number" name="quantity" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Adult (Max.)</label>
-                                <input type="number" min="1" name="adult" class="form-control shadow-none" required>
+                                <input type="number" name="adult" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label fw-bold">Children (Max.)</label>
-                                <input type="number" min="1" name="children" class="form-control shadow-none" required>
+                                <input type="number" name="children" class="form-control shadow-none" required>
                             </div>
                         </div>
                         <div class="col-12 mb-3">
@@ -235,7 +235,7 @@ session_regenerate_id(true);
             </form>
         </div>
     </div>
-                
+     
 
                 
     <?php require('inc/scripts.php');?>  
@@ -307,7 +307,6 @@ session_regenerate_id(true);
             xhr.send(data);
         }
 
-
         function get_all_rooms(){
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "ajax/rooms.php", true);
@@ -320,93 +319,66 @@ session_regenerate_id(true);
 
             xhr.send('get_all_rooms');
         }
-        function toggle_status(id, val){
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajax/rooms.php", true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-            xhr.onload = function(){
-
-               if(this.responseText==1)
-               {
-                alert('success','Status Toggled');
-                get_all_rooms();
-               }
-               else{
-                alert('success','Server Down');
-               }
-               
-            }
-
-            xhr.send('toggle_status='+id+'&val='+val);
-        }
-
 
         let edit_room_form = document.getElementById('edit_room_form');
 
-        function edit_details(id){
-
+        function edit_details(id) {
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "ajax/rooms.php", true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-            xhr.onload = function(){
-               let data = JSON.parse(this.responseText);
-               edit_room_form.elements['name'].value = data.roomdata.name;
-               edit_room_form.elements['price'].value = data.roomdata.price;
-               edit_room_form.elements['quantity'].value = data.roomdata.quantity;
-               edit_room_form.elements['adult'].value = data.roomdata.adult;
-               edit_room_form.elements['children'].value = data.roomdata.children;
-               edit_room_form.elements['desc'].value = data.roomdata.desc;
-               edit_room_form.elements['room_id'].value = data.roomdata.id;
+            xhr.onload = function() {
+                if (this.status >= 200 && this.status < 300) {
+                    let data = JSON.parse(this.responseText);
+                    if (data.roomdata) {
+                        edit_room_form.elements['name'].value = data.roomdata.name;
+                        edit_room_form.elements['price'].value = data.roomdata.price;
+                        edit_room_form.elements['quantity'].value = data.roomdata.quantity;
+                        edit_room_form.elements['adult'].value = data.roomdata.adult;
+                        edit_room_form.elements['children'].value = data.roomdata.children;
+                        edit_room_form.elements['desc'].value = data.roomdata.description;
+                        edit_room_form.elements['room_id'].value = data.roomdata.id;
 
-               edit_room_form.elements['feature'].forEach(element => {
-                    if (data.feature. includes(Number(element.value))) {
-                        element.checked = true;
+                        document.querySelectorAll("input[name='feature']").forEach(element => {
+                            element.checked = data.feature.includes(Number(element.value));
+                        });
+
+                        document.querySelectorAll("input[name='facilities']").forEach(element => {
+                            element.checked = data.facilities.includes(Number(element.value));
+                        });
+
+                    } else {
+                        console.error("Invalid room data:", data);
                     }
-                });
+                } else {
+                    console.error("Failed to load data. Status:", this.status);
+                }
+            };
 
-               edit_room_form.elements['facilities'].forEach(element => {
-                    if (data.facilities. includes(Number(element.value))) {
-                        element.checked = true;
-                    }
-                });
+            xhr.onerror = function() {
+                console.error("Network error occurred.");
+            };
 
-            }
-
-            xhr.send('get_room='+id);
+            xhr.send('get_room=' + id);
         }
 
-        edit_room_form.addEventListener('submit', function(e){
+        edit_room_form.addEventListener('submit', function(e) {
             e.preventDefault();
             submit_edit_room();
         });
 
-        function submit_edit_room(){
-            let data = new FormData(add_room_form); // Correctly bind form data
+        function submit_edit_room() {
+            let data = new FormData(edit_room_form);
             data.append('edit_room', '');
 
-            // Append additional form data
-            data.append('room_id', edit_room_form.elements['room_id'].value);
-            data.append('name', edit_room_form.elements['name'].value);
-            data.append('price', edit_room_form.elements['price'].value);
-            data.append('quantity', edit_room_form.elements['quantity'].value);
-            data.append('adult', edit_room_form.elements['adult'].value);
-            data.append('children', edit_room_form.elements['children'].value);
-            data.append('desc', edit_room_form.elements['desc'].value);
-
             let feature = [];
-            edit_room_form.elements['feature'].forEach(element => {
-                if (element.checked) {
-                    feature.push(element.value);
-                }
+            document.querySelectorAll("input[name='feature']:checked").forEach(element => {
+                feature.push(element.value);
             });
 
             let facilities = [];
-            edit_room_form.elements['facilities'].forEach(element => {
-                if (element.checked) {
-                    facilities.push(element.value);
-                }
+            document.querySelectorAll("input[name='facilities']:checked").forEach(element => {
+                facilities.push(element.value);
             });
 
             data.append('feature', JSON.stringify(feature));
@@ -415,14 +387,12 @@ session_regenerate_id(true);
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "ajax/rooms.php", true);
 
-            xhr.onload = function(){
-                var myModal = document.getElementById('edit-room');
-                var modal = bootstrap.Modal.getInstance(myModal);
-                modal.hide();
-
+            xhr.onload = function() {
                 if (this.status >= 200 && this.status < 300) {
-                    console.log("Response:", this.responseText);
-                    var response = JSON.parse(this.responseText);
+                    let myModal = bootstrap.Modal.getInstance(document.getElementById('edit-room'));
+                    myModal.hide();
+
+                    let response = JSON.parse(this.responseText);
                     if (response == 1) {
                         alert('success', "Room Edited Successfully!");
                         edit_room_form.reset();

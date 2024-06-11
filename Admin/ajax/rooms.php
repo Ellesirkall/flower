@@ -104,41 +104,37 @@ if (isset($_POST['get_all_rooms'])) {
     echo $data;
 }
 
-
 if (isset($_POST['get_room'])) {
-
     $form_data = sanitization($_POST);
-    $res1 = select("SELECT * FROM `rooms` WHERE `id`=?",[$form_data['get_room']], 'i');
-    $res2 = select("SELECT * FROM `room_features` WHERE `room_id`=?",[$form_data['get_room']], 'i');
-    $res3 = select("SELECT * FROM `room_facilities` WHERE `room_id`=?",[$form_data['get_room']], 'i');
+    $room_id = $form_data['get_room'];
+
+    $res1 = select("SELECT * FROM `rooms` WHERE `id`=?", [$room_id], 'i');
+    $res2 = select("SELECT * FROM `room_features` WHERE `room_id`=?", [$room_id], 'i');
+    $res3 = select("SELECT * FROM `room_facilities` WHERE `room_id`=?", [$room_id], 'i');
 
     $roomdata = mysqli_fetch_assoc($res1);
-    $feature =  [];
-    $facilities =  [];
-    
-    if (mysqli_num_rows($res2)>0) {
-        while($row = mysqli_fetch_assoc($res2)){
+    $feature = [];
+    $facilities = [];
+
+    if (mysqli_num_rows($res2) > 0) {
+        while ($row = mysqli_fetch_assoc($res2)) {
             array_push($feature, $row['features_id']);
         }
     }
-    if (mysqli_num_rows($res3)>0) {
-        while($row = mysqli_fetch_assoc($res3)){
+
+    if (mysqli_num_rows($res3) > 0) {
+        while ($row = mysqli_fetch_assoc($res3)) {
             array_push($facilities, $row['facilities_id']);
         }
     }
 
     $data = ["roomdata" => $roomdata, "feature" => $feature, "facilities" => $facilities];
-
-    $data = json_encode($data);
-
-    echo $data;
-
+    echo json_encode($data);
 }
 
-if (isset($_POST['edit_room'])){
-
-    $feature = sanitization(json_decode($_POST['feature']));
-    $facilities = sanitization(json_decode($_POST['facilities']));
+if (isset($_POST['edit_room'])) {
+    $feature = json_decode($_POST['feature']);
+    $facilities = json_decode($_POST['facilities']);
 
     $form_data = sanitization($_POST);
     $flag = 0;
@@ -159,8 +155,7 @@ if (isset($_POST['edit_room'])){
 
     $q2 = "INSERT INTO `room_facilities` (`room_id`, `facilities_id`) VALUES (?,?)";
     if ($stmt = mysqli_prepare($con, $q2)) {
-
-        foreach($facilities as $f){
+        foreach ($facilities as $f) {
             mysqli_stmt_bind_param($stmt, 'ii', $form_data['room_id'], $f);
             mysqli_stmt_execute($stmt);
         }
@@ -170,12 +165,10 @@ if (isset($_POST['edit_room'])){
         $flag = 0;
         die('query cannot be prepared - insert');
     }
-
 
     $q3 = "INSERT INTO `room_features` (`room_id`, `features_id`) VALUES (?,?)";
     if ($stmt = mysqli_prepare($con, $q3)) {
-
-        foreach($feature as $f){
+        foreach ($feature as $f) {
             mysqli_stmt_bind_param($stmt, 'ii', $form_data['room_id'], $f);
             mysqli_stmt_execute($stmt);
         }
@@ -186,13 +179,7 @@ if (isset($_POST['edit_room'])){
         die('query cannot be prepared - insert');
     }
 
-    if ($flag) {
-        echo 1;
-    } else {
-        echo 0;
-    }
-
-
+    echo $flag ? 1 : 0;
 }
 
 if (isset($_POST['toggle_status'])) {
