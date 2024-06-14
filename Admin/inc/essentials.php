@@ -53,12 +53,7 @@ function uploadImage($file, $folder) {
     if (!in_array($imageFileType, $allowedFormats)) {
         return 'inv_img';
     }
-
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        return 'inv_img';
-    }
-
+    
     // Move the uploaded file to the destination directory
     if (move_uploaded_file($file["tmp_name"], $target_file)) {
         return basename($file["name"]);
@@ -66,6 +61,14 @@ function uploadImage($file, $folder) {
         error_log("Failed to move uploaded file: " . $file["tmp_name"] . " to " . $target_file); // Debug log
         return 'upd_failed';
     }
+}
+
+function deleteImage($imageName, $folder) {
+    $imgPath = UPLOAD_IMAGE_PATH . $folder . $imageName;
+    if (file_exists($imgPath)) {
+        return unlink($imgPath);
+    }
+    return false;
 }
 
 ?>

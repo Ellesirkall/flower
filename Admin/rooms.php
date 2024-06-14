@@ -68,7 +68,7 @@ session_regenerate_id(true);
             <form id="add_room_form">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title color-pink">Add Rooms</h5>
+                        <h5 class="modal-title lobster-regular color-pink">Add Rooms</h5>
                     </div>
                     <div class="modal-body">
 
@@ -160,7 +160,7 @@ session_regenerate_id(true);
             <form id="edit_room_form">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title color-pink">Edit Room</h5>
+                        <h5 class="modal-title lobster-regular color-pink">Edit Room</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
@@ -241,14 +241,14 @@ session_regenerate_id(true);
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Room Name</h5>
+                    <h5 class="modal-title lobster-regular color-pink">Room Name</h5>
                     <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div id="image-alert"></div>
                     <div class="border-bottom border-3 pb-3 mb-3">
                         <form id="add_image_form">
-                            <label class="form-label fw-bold">Add image</label>
+                            <label class="form-label fw-bold color-pink">Add image</label>
                             <!-- this just accepts images for the rooms -->
                             <input type="file" name="image" accept=".jpg, .png, .webp, .jpeg" class="form-control shadow-none mb-3" required>
                             <button class="btn btn-dark text-white shadow-none">
@@ -462,7 +462,7 @@ session_regenerate_id(true);
                     alert('error', "No Changes In Status Made!");
                 }
 
-            }
+            };
 
             xhr.send('toggle_status=' +id+ '&value=' +val);
         }
@@ -481,11 +481,12 @@ session_regenerate_id(true);
 
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "ajax/rooms.php", true);
+
             xhr.onload = function() {
                 if(this.responseText == 'inv_img') {
-                    alert('error', 'File extension wrong/Image already uploaded');
+                    alert('error', 'File extension wrong. Must be jpg, png, jpeg, webp only', 'image-alert');
                 } else if(this.responseText == 'inv_size') {
-                    alert('error', 'Image should be less than 2MB!');
+                    alert('error', 'Image should be less than 2MB!', 'image-alert');
                 } else if(this.responseText == 'upd_failed') {
                     alert('error', 'Image upload failed!');
                 } else {
@@ -493,7 +494,7 @@ session_regenerate_id(true);
                     room_images(add_image_form.elements['room_id'].value, document.querySelector("#room-images .modal-title").innerText);
                     add_image_form.reset();
                 }
-            }
+            };
 
             xhr.send(data);
         }
@@ -511,9 +512,89 @@ session_regenerate_id(true);
                 } else {
                     console.error('Failed to fetch images');
                 }
-            }
+            };
             xhr.send("get_room_images=" + id);
         }
+
+        function rem_image(img_id, room_id) {
+            let data = new FormData();
+            data.append('image_id', img_id);
+            data.append('room_id', room_id);
+            data.append('rem_image', ''); 
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/rooms.php", true);
+
+            xhr.onload = function() {
+                if (this.status === 200) {
+                    if (this.responseText == 1) {
+                        alert('success', 'Image removed!', 'image-alert');
+                        room_images(room_id, document.querySelector("#room-images .modal-title").innerText);                   
+                    } else {
+                        alert('error', 'Image deletion failed!', 'image-alert');
+                    }
+                } else {
+                    console.error('Failed to delete image');
+                }
+            }
+
+            xhr.send(data);
+        }
+
+        function thumb_image(img_id, room_id) {
+            let data = new FormData();
+            data.append('image_id', img_id);
+            data.append('room_id', room_id);
+            data.append('thumb_image', ''); 
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/rooms.php", true);
+
+            xhr.onload = function() {
+                if (this.status === 200) {
+                    if (this.responseText == 1) {
+                        alert('success', 'Image thumbnail changed!', 'image-alert');
+                        room_images(room_id, document.querySelector("#room-images .modal-title").innerText);                   
+                    } else {
+                        alert('error', 'Image replacement failed!', 'image-alert');
+                    }
+                } else {
+                    console.error('Failed to change thumbnail');
+                }
+            };
+
+            xhr.send(data);
+        }
+
+        
+        function remove_room(room_id) {
+            if (confirm("Are you sure you want to delete this room?")) {
+                let data = new FormData();
+                data.append('room_id', room_id);
+                data.append('remove_room', ''); 
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "ajax/rooms.php", true);
+
+                xhr.onload = function() {
+                    if (this.status === 200) {
+                        if (this.responseText == 1) {
+                            alert('success', 'Room removed successfully!', 'image-alert');                  
+                        } else {
+                            alert('error', 'Operation Failed!', 'image-alert');
+                        }
+                        // Ensure the alert is shown before refreshing the room list
+                        get_all_rooms();
+                    } else {
+                        console.error('Room Deletion Failed');
+                    }
+                };
+
+                xhr.send(data);
+            }
+        }
+
+            
 
         window.onload = function(){
             get_all_rooms();
