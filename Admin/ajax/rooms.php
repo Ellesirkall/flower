@@ -93,8 +93,14 @@ if (isset($_POST['get_all_rooms'])) {
                 <td>$row[quantity]</td>
                 <td>$status</td>
                 <td>
+                    <!-- button for room edit -->
                     <button type='button' onclick='edit_details($row[id])' class='btn btn-dark shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#edit-room'>
                         <i class='bi bi-pencil-square color-white'> </i> Edit
+                    </button>
+
+                    <!-- button for room images -->
+                    <button type='button' onclick=\"room_images($row[id], '$row[name]')\" class='btn btn-outline-dark shadow-none btn-sm' data-bs-toggle='modal' data-bs-target='#room-images'>
+                        <i class='bi bi-images color-white'> </i> Image
                     </button>
                 </td>
             </tr>
@@ -197,5 +203,66 @@ if (isset($_POST['toggle_status'])) {
 }
 
 
+if (isset($_POST['add_image'])) {
+    $form_data = sanitization($_POST);
+    $img_r = uploadImage($_FILES['image'], ROOMS_FOLDER);
+
+    if ($img_r == 'inv_img') {
+        echo 'inv_img';
+    } else if ($img_r == 'inv_size') {
+        echo 'inv_size';
+    } else if ($img_r == 'upd_failed') {
+        echo 'upd_failed';
+    } else {
+        $q = "INSERT INTO `room_images`(`room_id`, `image`) VALUES (?,?)";
+        $values = [$form_data['room_id'], $img_r];
+        $res = insert($q, $values, 'is');
+        echo $res;
+    }
+}
+
+if (isset($_POST['get_room_images'])) {
+    $form_data = sanitization($_POST);
+    $room_id = $form_data['get_room_images'];
+    $res = select("SELECT * FROM `room_images` WHERE `room_id`=?", [$room_id], 'i');
+
+    $path = ROOMS_IMG_PATH;
+
+    if ($res) {
+        while ($row = mysqli_fetch_assoc($res)) {
+            echo <<<data
+                <tr class='align-middle'>
+                    <td><img src='$path{$row['image']}' class='img-fluid' alt='Room Image'></td>
+                    <td>thumb</td>
+                    <td>delete</td>
+                </tr>
+            data;
+        }
+    } else {
+        echo json_encode(["error" => "No images found for the specified room ID."]);
+    }
+}
+
+if (isset($_POST['get_room_images'])) {
+    $form_data = sanitization($_POST);
+    $room_id = $form_data['get_room_images'];
+    $res = select("SELECT * FROM `room_images` WHERE `room_id`=?", [$room_id], 'i');
+
+    $path = ROOMS_IMG_PATH;
+
+    if ($res) {
+        while ($row = mysqli_fetch_assoc($res)) {
+            echo <<<data
+                <tr class='align-middle'>
+                    <td><img src='$path{$row['image']}' class='img-fluid'></td>
+                    <td>thumb</td>
+                    <td>delete</td>
+                </tr>
+            data;
+        }
+    } else {
+        echo json_encode(["error" => "No images found for the specified room ID."]);
+    }
+}
 
 ?>

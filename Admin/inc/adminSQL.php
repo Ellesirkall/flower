@@ -31,6 +31,10 @@ function selectAll($table){
 function select($sql, $values, $datatypes) {
     $con = $GLOBALS['con'];
     try {
+        if (!is_array($values)) {
+            throw new Exception("Values parameter must be an array");
+        }
+
         if ($stmt = mysqli_prepare($con, $sql)) {
             mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
 
@@ -39,15 +43,15 @@ function select($sql, $values, $datatypes) {
                 if ($result) {
                     return $result;
                 } else {
-                    throw new Exception("Error fetching result:". mysqli_error($con));
+                    throw new Exception("Error fetching result: ". mysqli_error($con));
                 }
             } else {
-                throw new Exception("Error fetching result:". mysqli_stmt_error($stmt));
+                throw new Exception("Error executing statement: ". mysqli_stmt_error($stmt));
             }
 
             mysqli_stmt_close($stmt);
         } else {
-            throw new Exception("Preparation error:". mysqli_error($con));
+            throw new Exception("Preparation error: ". mysqli_error($con));
         }
     } catch (Exception $e) {
         echo json_encode(["error" => $e->getMessage()]);

@@ -75,7 +75,7 @@
                             echo<<<data
                                 <a href="$contact_r[ig]" class="d-inline-block mb-3">
                                     <span class="badge bg-light text-dark fs-6 p-2">
-                                        <i class="bi bi-instagram color-pink"> Instagram</i>
+                                        <i class="bi bi-instagram color-pink"></i>
                                     </span>
                                 </a>                                
                             data;
@@ -84,7 +84,7 @@
                             echo<<<data
                                 <a href="$contact_r[tw]" class="d-inline-block">
                                     <span class="badge bg-light text-dark fs-6 p-2">
-                                        <i class="bi bi-twitter color-pink"> Twitter</i>
+                                        <i class="bi bi-twitter color-pink"></i>
                                     </span>
                                 </a>
                             data;
