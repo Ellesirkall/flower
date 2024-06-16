@@ -12,7 +12,7 @@ body {
 }
 
 
-/* Apply desired font color & weight */
+/* Apply desired font color & weight & background*/
 .fw{ 
     font-size: x-large;
 }
@@ -21,6 +21,9 @@ body {
 }
 .dark-pink {
     color: #ee6e6e;
+}
+.bg-dark{
+    background-color: #ee6e6e;
 }
 
 /* Adding preferred font */
