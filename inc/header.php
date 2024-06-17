@@ -1,16 +1,3 @@
-<?php
-require('Admin/inc/adminSQL.php');
-require('Admin/inc/essentials.php');
-
-$contact_q = "SELECT * FROM `contacts` WHERE `id_no`=?";
-$gen_q = "SELECT * FROM `settings` WHERE `id_no`=?";
-$values = [1];
-$contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
-$gen_r =  mysqli_fetch_assoc(select($gen_q,$values,'i'));
-
-?>
-
-
 <!-- Navigation Bar -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
@@ -39,23 +26,47 @@ $gen_r =  mysqli_fetch_assoc(select($gen_q,$values,'i'));
         </li>
       </ul>
       <div class="d-flex">
-        <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">
-        Login
-        </button>
-        <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#registerModal">
-        Register
-        </button>
+        <?php 
+            
+            if(isset($_SESSION['login']) && $_SESSION['login']==true){
+                $path = USERS_IMG_PATH;
+                echo<<<data
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-dark shadow-none dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                            <img src="$path$_SESSION[uPic]" style="width 25px; height: 25px;" class="me-1">
+                            $_SESSION[uName]
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-lg-end">
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="bookings.php">Bookings</a></li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    </div>
+                data;
+            } else {
+                echo<<<data
+                    <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        Login
+                    </button>
+                    <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#registerModal">
+                        Register
+                    </button>
+                data;
+            }
+
+        ?>
+        
     </div>
     </div>
   </div>
 </nav>
 
-<!-- Log In Form -->
+<!-- Log In Form Modal -->
 
     <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form method="post" onsubmit="myaction.collect_data(event, 'login')">
+                <form id="login-form">
                     <div class="modal-header">
                         <h5  class="modal-title d-flex align-items-center">
                             <a class="navbar-brand" href="#">
@@ -65,17 +76,13 @@ $gen_r =  mysqli_fetch_assoc(select($gen_q,$values,'i'));
                         <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div><small class="my-1 js-error js-error-email text-danger"></small></div>
                         <div class="mb-3">
-                            <label class="form-label">Email address</label>
+                            <label class="form-label">Email</label>
                             <input name="email" type="text" class="form-control p-3">
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Password</label>
-                            <input name="password" type="password" class="form-control p-3">
-                        </div>
-                        <div class="progress my-3 d-none">
-                            <div class="progress-bar" role="progressbar" style="width: 50%;" >Working... 25%</div>
+                            <input name="pass" type="password" class="form-control p-3">
                         </div>
                         <div>
                             <button type="submit" class="btn btn-dark shadow-none">Log In</button>
@@ -86,12 +93,12 @@ $gen_r =  mysqli_fetch_assoc(select($gen_q,$values,'i'));
         </div>
     </div>
 
-<!-- Registration Form -->
+<!-- Registration Form Modal -->
 
     <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form>
+                <form id="register-form">
                     <div class="modal-header">
                         <h5  class="modal-title d-flex align-items-center">
                             <a class="navbar-brand" href="#">
@@ -101,149 +108,58 @@ $gen_r =  mysqli_fetch_assoc(select($gen_q,$values,'i'));
                         <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <span class="badge rounded-pill bg-light text-dark mb-3 text-wrap lh-base">
-                        Note: Your details must match with your ID (valid id or any government issued ID) 
-                        as that will be required during check-in.
-                    </span>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label for="form-label" class="form-label">Name</label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                            <div class="col-md-6 p-0 mb-3">
-                                <label for="form-label" class="form-label">Surname</label>
-                                <input type="text" class="form-control shadow-none">
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label for="form-label" class="form-label">Phone</label>
-                                <input type="number" class="form-control shadow-none">
-                            </div>
-                            <div class="col-md-6 p-0 mb-3">
-                                <label for="form-label" class="form-label">Email</label>
-                                <input type="email" class="form-control shadow-none">
-                            </div>
-                            <div class="col-md-12 p-0 mb-3">
-                                <div class="mb-3">
-                                    <label class="form-label">Address</label>
-                                    <textarea class="form-control shadow-none" rows="1"></textarea>
+                        <span class="badge rounded-pill bg-light text-dark mb-3 text-wrap lh-base">
+                            Note: Your details must match with your ID (valid id or any government issued ID) 
+                            as that will be required during check-in.
+                        </span>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label for="form-label" class="form-label">Name</label>
+                                    <input name="name" type="text" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 p-0 mb-3">
+                                    <label for="form-label" class="form-label">Email</label>
+                                    <input name="email" type="email" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label for="form-label" class="form-label">Phone #</label>
+                                    <input name="pn" type="number" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label for="form-label" class="form-label">Picture</label>
+                                    <input name="profile" type="file" accept=".jpg, .webp, .png, .jpeg" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-12 p-0 mb-3">
+                                    <div class="mb-3">
+                                        <label class="form-label">Address</label>
+                                        <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label for="form-label" class="form-label">Postal Code</label>
+                                    <input name="posc" type="number" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 p-0 mb-3">
+                                    <label for="form-label" class="form-label">Birthdate</label>
+                                    <input name="bd" type="date" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label for="form-label" class="form-label">Password</label>
+                                    <input name="pw" type="password" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 p-0 mb-3">
+                                    <label for="form-label" class="form-label">Confirm Password</label>
+                                    <input name="cpw" type="password" class="form-control shadow-none" required>
                                 </div>
                             </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label for="form-label" class="form-label">Postal Code</label>
-                                <input type="number" class="form-control shadow-none">
+                            <div>
+                            <div class="text-center my-3"></div>
+                            <button type="submit" class="btn btn-dark shadow-none">Register</button>
                             </div>
-                            <div class="col-md-6 p-0 mb-3">
-                                <label for="form-label" class="form-label">Birthdate</label>
-                                <input type="date" class="form-control shadow-none">
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label for="form-label" class="form-label">Password</label>
-                                <input type="password" class="form-control shadow-none">
-                            </div>
-                            <div class="col-md-6 p-0 mb-3">
-                                <label for="form-label" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control shadow-none">
-                            </div>
-                        </div>
-                        <div>
-                           <div class="text-center my-3"></div>
-                           <button type="submit" class="btn btn-dark shadow-none">Register</button>
-                        </div>
-
-
-                           
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-
-<script>
-	
-	var myaction  = 
-	{
-		collect_data: function(e, data_type)
-		{
-			e.preventDefault();
-			e.stopPropagation();
-
-			var inputs = document.querySelectorAll("form input, form select");
-			let myform = new FormData();
-			myform.append('data_type',data_type);
-
-			for (var i = 0; i < inputs.length; i++) {
-
-				myform.append(inputs[i].name, inputs[i].value);
-			}
-
-			myaction.send_data(myform);
-		},
-
-		send_data: function (form)
-		{
-
-			var ajax = new XMLHttpRequest();
-
-			document.querySelector(".progress").classList.remove("d-none");
-
-			//reset the prog bar
-			document.querySelector(".progress-bar").style.width = "0%";
-			document.querySelector(".progress-bar").innerHTML = "Working... 0%";
-
-			ajax.addEventListener('readystatechange', function(){
-
-				if(ajax.readyState == 4)
-				{
-					if(ajax.status == 200)
-					{
-						//all good
-						myaction.handle_result(ajax.responseText);
-					}else{
-						console.log(ajax);
-						alert("An error occurred");
-					}
-				}
-			});
-
-			ajax.upload.addEventListener('progress', function(e){
-
-				let percent = Math.round((e.loaded / e.total) * 100);
-				document.querySelector(".progress-bar").style.width = percent + "%";
-				document.querySelector(".progress-bar").innerHTML = "Working..." + percent + "%";
-			});
-
-			ajax.open('post','ajax.php', true);
-			ajax.send(form);
-		},
-
-		handle_result: function (result)
-		{
-			console.log(result);
-			var obj = JSON.parse(result);
-			if(obj.success)
-			{
-				alert("Login successful!");
-				window.location.href = 'profile.php';
-			}else{
-
-				//show errors
-				let error_inputs = document.querySelectorAll(".js-error");
-
-				//empty all errors
-				for (var i = 0; i < error_inputs.length; i++) {
-					error_inputs[i].innerHTML = "";
-				}
-
-				//display errors
-				for(key in obj.errors)
-				{
-					document.querySelector(".js-error-"+key).innerHTML = obj.errors[key];
-				}
-			}
-		}
-	};
-
-</script>

@@ -6,3 +6,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="css/style.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<?php
+
+session_start();
+
+require('Admin/inc/adminSQL.php');
+require('Admin/inc/essentials.php');
+
+$contact_q = "SELECT * FROM `contacts` WHERE `id_no`=?";
+$gen_q = "SELECT * FROM `settings` WHERE `id_no`=?";
+$values = [1];
+$contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
+$gen_r =  mysqli_fetch_assoc(select($gen_q,$values,'i'));
+
+?>

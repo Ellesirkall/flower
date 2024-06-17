@@ -2,8 +2,10 @@
 
 define('SITE_URL', 'http://127.0.0.1/flower/');
 define('ROOMS_IMG_PATH', SITE_URL . 'Images/rooms/');
+define('USERS_IMG_PATH', SITE_URL . 'Images/users/');
 define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/flower/Images/');
 define('ROOMS_FOLDER', 'rooms/');
+define('USERS_FOLDER', 'users/');
 
 function adminLogin() {
     session_start();
@@ -32,19 +34,19 @@ function alert($type, $msg) {
     alert;
 }
 
-function uploadImage($file, $folder) {
+function uploadImage($image, $folder) {
     $target_dir = UPLOAD_IMAGE_PATH . $folder . "/";
-    $target_file = $target_dir . basename($file["name"]);
+    $target_file = $target_dir . basename($image["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     // Check if image file is a actual image or fake image
-    $check = getimagesize($file["tmp_name"]);
+    $check = getimagesize($image["tmp_name"]);
     if ($check === false) {
         return 'inv_img';
     }
 
     // Check file size (2MB maximum)
-    if ($file["size"] > 2000000) {
+    if ($image["size"] > 2000000) {
         return 'inv_size';
     }
 
@@ -55,20 +57,48 @@ function uploadImage($file, $folder) {
     }
     
     // Move the uploaded file to the destination directory
-    if (move_uploaded_file($file["tmp_name"], $target_file)) {
-        return basename($file["name"]);
+    if (move_uploaded_file($image["tmp_name"], $target_file)) {
+        return basename($image["name"]);
     } else {
-        error_log("Failed to move uploaded file: " . $file["tmp_name"] . " to " . $target_file); // Debug log
+        error_log("Failed to move uploaded file: " . $image["tmp_name"] . " to " . $target_file); // Debug log
         return 'upd_failed';
     }
 }
 
-function deleteImage($imageName, $folder) {
-    $imgPath = UPLOAD_IMAGE_PATH . $folder . $imageName;
+function deleteImage($image, $folder) {
+    $imgPath = UPLOAD_IMAGE_PATH . $folder . $image;
     if (file_exists($imgPath)) {
         return unlink($imgPath);
     }
     return false;
+}
+
+function uploadUserImage($image){
+    $valid_mime = ['image/jpeg', 'image/png', 'image/webp']; 
+    $img_mime = $image['type'];
+
+    if(!in_array($img_mime, $valid_mime)) { 
+        return 'inv_img'; // Invalid image mime or format
+    } else { 
+        $ext = pathinfo($image['name'], PATHINFO_EXTENSION); 
+        $rname = 'IMG_'.random_int(11111, 99999).".jpeg";
+
+        $img_path = UPLOAD_IMAGE_PATH.USERS_FOLDER.$rname;
+
+        if ($ext == 'png' || $ext == 'PNG') {
+            $img = imagecreatefrompng($image['tmp_name']);
+        } elseif ($ext == 'webp' || $ext == 'WEBP') {
+            $img = imagecreatefromwebp($image['tmp_name']);
+        } else {
+            $img = imagecreatefromjpeg($image['tmp_name']);
+        }
+
+        if(imagejpeg($img, $img_path, 75)) { 
+            return $rname;
+        } else { 
+            return 'upd_failed';
+        }
+    }
 }
 
 ?>
